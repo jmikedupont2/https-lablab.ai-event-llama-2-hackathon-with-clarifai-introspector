@@ -3,9 +3,14 @@ import os
 import json
 import os.path
 import pprint
+from clarifai.client.input import Input
 from clarifai.client.dataset import Dataset
 from clarifai.datasets.upload.base import ClarifaiDataLoader
 from clarifai.datasets.upload.features import (TextFeatures)
+from clarifai_grpc.grpc.api import resources_pb2, service_pb2
+from clarifai_grpc.grpc.api.resources_pb2 import Input
+from clarifai_grpc.grpc.api.status import status_code_pb2
+
 chunk_size=10
 #clarifai/datasets/upload/base.py
 #from clarifai.datasets.upload.utils import load_dataloader, load_module_dataloader
@@ -89,7 +94,7 @@ class Globals(Common):
 
         
     def load_data(self):
-        data = []
+        dataset = []
         for objectn in globals():
             value = globals()[objectn]
             fstr = redact(str(value))
@@ -98,13 +103,14 @@ class Globals(Common):
                 str(type(value))
             ]
             labels.extend(dir(value))
-            labels.extend(dir(type(value)))        
-            data.append(TextFeatures(
-                text = fstr,
-                labels = labels,
-                id = int(id(value))
-            ))
-        return data
+            labels.extend(dir(type(value)))
+            text_data = resources_pb2.Text(raw=fstr)
+            data = resources_pb2.Data(text=text_data)        
+            input_proto = resources_pb2.Input(data=data,
+                                              #labels=labels,
+                                              id=str(id(value)))
+            dataset.append(input_proto)
+        return dataset
 
             
 models = {
