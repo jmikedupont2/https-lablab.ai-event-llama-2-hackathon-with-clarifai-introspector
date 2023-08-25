@@ -1,0 +1,2 @@
+test:
+	python new.py
