@@ -5,6 +5,8 @@ import os.path
 import pprint
 from clarifai.client.dataset import Dataset
 from clarifai.datasets.upload.base import ClarifaiDataLoader
+from clarifai.datasets.upload.features import (TextFeatures)
+chunk_size=10
 #clarifai/datasets/upload/base.py
 #from clarifai.datasets.upload.utils import load_dataloader, load_module_dataloader
 
@@ -17,11 +19,6 @@ CREATE_WORKFLOW_ID = "ci_test_workflow"
 CREATE_DATASET_ID = "ci_test_dataset"
 CREATE_MODULE_ID = "ci_test_module"
 
-#dataset = Dataset(user_id="user_id", app_id="app_id", dataset_id="dataset_id")
-#    dataset.upload_dataset(task='visual_segmentation', split="train", dataset_loader='coco_segmentation')
-#    dataset.upload_from_folder(folder_path='folder_path', input_type='text', labels=True)
-#    dataset.upload_from_csv(csv_path='csv_path', labels=True)
-
 
 import os
 
@@ -29,9 +26,9 @@ from clarifai.datasets.upload.base import ClarifaiDataLoader
 from clarifai.datasets.upload.features import VisualClassificationFeatures
 
 
-class Common(ClarifaiDataLoader):
-    def __len__(self):
-        return 0
+class Common:
+    def load_data(self):
+        return []
 
     def __init__(self):
         self.dataset = None
@@ -40,12 +37,10 @@ class Common(ClarifaiDataLoader):
         self.dataset = dataset
         
     def sync(self):
-        #self.get_count_remote()
-        self.dataset.input_object._bulk_upload(
-            inputs=self
-            #, chunk_size=chunk_size
-        )
-        
+        inputs = self.load_data()
+        if inputs:
+            print(len(inputs))
+            self.dataset.input_object._bulk_upload(inputs=inputs, chunk_size=chunk_size)
 
 class Types(Common):
     pass
@@ -55,7 +50,6 @@ class Apps(Common):
 
 class DataSets(Common):
     pass
-
 
 class Users(Common):
     pass
@@ -87,15 +81,15 @@ apps = client.list_apps()
 
 
 class Globals(Common):
-    def __init__(self, split: str = "train"):
-        self.split = split
+    def __init__(self):
+        pass 
+    #, split: str = "train"):
+        #self.split = split
         #self.image_dir = {"train": os.path.join(os.path.dirname(__file__), "images")}
-        self.load_data()
+
         
     def load_data(self):
-        self.data = []
-        class_names = ["type","int"]
-    
+        data = []
         for objectn in globals():
             value = globals()[objectn]
             fstr = redact(str(value))
@@ -105,24 +99,14 @@ class Globals(Common):
             ]
             labels.extend(dir(value))
             labels.extend(dir(type(value)))        
-            self.data.append({
-                "value": fstr,
-                "name": objectn,
-                "type": str(type(value)),
-                "dir": dir(value),
-                "type_dir": dir(value),
-                "id": id(value)
-            })
-        def __getitem__(self, idx):
-            di = self.data[idx]
-            return TextFeatures(
-                text = di['value'],
-                labels = di['labels'],
-                id = int(di['id'])
-            )
-        def __len__(self):
-            return len(self.data)
+            data.append(TextFeatures(
+                text = fstr,
+                labels = labels,
+                id = int(id(value))
+            ))
+        return data
 
+            
 models = {
     "User": Users(),
     "App": Apps(),
