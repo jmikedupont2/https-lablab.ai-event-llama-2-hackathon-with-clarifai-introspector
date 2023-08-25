@@ -108,7 +108,8 @@ class Globals(Common):
             data = resources_pb2.Data(text=text_data)        
             input_proto = resources_pb2.Input(data=data,
                                               #labels=labels,
-                                              id=str(id(value)))
+                                              #id=str(id(value))
+                                              )
             dataset.append(input_proto)
         return dataset
 
