@@ -1,6 +1,8 @@
 import os
 import json
 from base import BaseClarifaiModel
+from clarifai.auth.helper import ClarifaiAuthHelper
+
 class SimpleContextClarifaiModel(BaseClarifaiModel):
     def __init__(self):
         self.config = None               
@@ -10,7 +12,16 @@ class SimpleContextClarifaiModel(BaseClarifaiModel):
         super().__init__(user_id=user_id,
                          app_id=app_id)
         self.app = self.client.app(app_id=self.app_id)
-
+        self.auth = None #for auth helper
+        
+    def get_auth_helper(self):
+        # needed for lower level apis
+        if self.auth is None:
+            self.auth = ClarifaiAuthHelper(pat=self.api_key,
+                                           user_id=self.user_id,
+                                           app_id=self.app_id)
+        return self.auth
+                
     def get_user_id_from_config(self):
         config = self.read_config_file()
         return config.get("user_id")

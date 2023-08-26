@@ -29,9 +29,9 @@ class BaseClarifaiModel:
         
     def read_user_id_from_config(self):
         return self.read_config().get("user_id", None)
+    
     def read_app_id_from_config(self):
         return self.read_config().get("app_id", None)
-
 
     def init_client(self):
         self.api_key = self.read_config().get("key",None)

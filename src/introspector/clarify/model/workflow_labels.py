@@ -19,20 +19,32 @@ class FlattenedLabelWorkflowGenerator:
         in_name = f"Input Task for {concept}"
         # Create input task
         input_task = {
-            "name": in_name,
+            "id": in_name,
             "model": {"id": "text-embedding"},
             #"inputs": {"unassigned": {"concepts": [{"id": "unassigned"}]}}
         }
-        nodes.append(input_task)
-
+        prompt_task = {
+            "id": "Prompter Node",
+            "model": None,
+            "inputs": [ in_name],
+            "constants": {
+                "prompt_template": f"Hello, From the concept of {concept}, please evalute how the following statement relates to that concept :'''{{data.text.raw}}'''. Your response:"
+            }
+        }
+        
         # Create a labeller task for the concept
         labeller_task = {
-            "name": f"Labeller for {concept}",
+            "id": f"Labeller for {concept}",
             "model": {"id": labelling_model_id},  # Replace with the actual labelling model ID
-            "inputs": [ in_name]
+            "inputs": [ "Prompter Node" ]
         }
+        
+        ### workflow
+        nodes.append(input_task)
+        nodes.append(prompt_task)
         nodes.append(labeller_task)
 
+        
         # Create an output task for the labeller
         #output_task = {
         #    "name": f"Output to {concept}",

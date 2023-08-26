@@ -1,7 +1,9 @@
 import json
 import versions
 import pprint
+#import prompt_model not needed
 
+from clarifai.models.api import Models
 model_version_lookup = versions.ModelVersionLookup()
 from clarifai_grpc.grpc.api.resources_pb2  import WorkflowNode, NodeInput, Model, ModelVersion
 #from workflow_map import ModelWorkflowGenerator
@@ -40,6 +42,63 @@ class RakeItUpContext(SimpleContextClarifaiModel):
 
         for concept in workflow_definitions:
             print("CONCEPT",concept)
+
+
+            # Define your prompt template
+            prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates to that concept :'''{{data.text.raw}}'''. Your response:"
+
+            # Create a prompt model
+            aprompt_model = None
+            try :
+                aprompt_model =self.app.model(                'pm_' +concept )
+            except Exception as e:
+                print(e)
+                
+            model_id  ='pm_' +concept
+            
+            if aprompt_model is not None:
+                self.app.delete_model(
+                    model_id=model_id)
+                aprompt_model= None
+            if aprompt_model is None:
+                
+                #prompt_model.create_prompt_model(model_id, prompt_template, "TEMPLATE")
+                prompt_model = self.app.create_model(
+                    #user_app_id=self.app,
+                    #models=[
+                    #    resources_pb2.Model(
+                    model_id=model_id,
+                    model_type_id="prompter",
+                    #    ),
+                    #]
+                )
+
+                #prompt_model.post_model_version()
+                auth = self.get_auth_helper()
+                model_api = Models(auth)
+                output_fields_map= {}
+                resp = model_api.post_model_version(
+                    model_id=model_id,
+                    model_zip_url=None,
+                    input={},
+                    outputs=output_fields_map,
+                )
+ 
+                
+                #'pm_' +concept ,
+                #    output_info={
+                #        "output_config" :
+                #        {
+                            #'concepts': [{'id': 'prompt'}], 'metadata': {'template': prompt_template}
+                 #        }
+                 #        },
+                 #   #concepts=['prompt']
+                #)
+            pprint.pprint(prompt_model)
+            #prompt_model.update_output_info(data={'concepts': [{'id': 'prompt'}], 'metadata': {'template': prompt_template}})
+            
+            
+
             workflow_definition = workflow_definitions[concept]
             # Print the generated workflow definition as JSON
             print(json.dumps(workflow_definition, indent=4))        
@@ -70,22 +129,16 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                                 id=latest_version[1]
                             )
                         )
+
+                    ####
+                    args ={}
+                    args.update(node)
+                    args =dict( model=model)
+                    node2 = WorkflowNode(**args)
+                    pprint.pprint({"DEBUG_NODE" : [i, node]})
+                    pprint.pprint({"DEBUG_NODE OUT" : [i, node2]})
+                    workflow_nodes.append(node2)
                     
-                    if i == 1: #no inputs
-                        print("inputs")
-                        workflow_nodes.append(
-                            WorkflowNode(
-                                id=node["name"],
-                                model=model,
-                                #node_inputs=inputs,
-                            ))
-                    else:
-                        workflow_nodes.append(
-                            WorkflowNode(
-                                id=node["name"],
-                                model=model,
-                                node_inputs=inputs,
-                            ))
             pprint.pprint({"WORKFLOW":workflow_nodes})
             created_workflow = self.app.create_workflow(
                             workflow_id="RakeItUpV1"+concept ,
