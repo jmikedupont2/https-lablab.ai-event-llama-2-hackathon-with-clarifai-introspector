@@ -44,3 +44,41 @@ node_inputs {
   node_id: "Input Task for python_globals"
 }
 ]}
+╭───────────────────────────── Traceback (most recent call last) ─────────────────────────────╮
+│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
+│ c/introspector/clarify/model/rake.py:124 in <module>                                        │
+│                                                                                             │
+│   121 │   rake_it_up_context = RakeItUpContext()                                            │
+│   122 │                                                                                     │
+│   123 │   # Execute the RakeItUp workflow                                                   │
+│ ❱ 124 │   rake_it_up_context.generate_and_execute_workflow()                                │
+│   125                                                                                       │
+│   126 # This script utilizes the `RakeItUpContext` class to perform the entire RakeItUp pro │
+│   127                                                                                       │
+│                                                                                             │
+│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
+│ c/introspector/clarify/model/rake.py:89 in generate_and_execute_workflow                    │
+│                                                                                             │
+│    86 │   │   │   │   │   │   │   │   node_inputs=inputs,                                   │
+│    87 │   │   │   │   │   │   │   ))                                                        │
+│    88 │   │   │   pprint.pprint({"WORKFLOW":workflow_nodes})                                │
+│ ❱  89 │   │   │   created_workflow = self.app.create_workflow(                              │
+│    90 │   │   │   │   │   │   │   workflow_id="RakeItUpV1"+concept ,                        │
+│    91 │   │   │   │   │   │   │   #name="RakeItUp Workflow",                                │
+│    92 │   │   │   │   │   nodes=workflow_nodes)                                             │
+│                                                                                             │
+│ /mnt/data1/2023/08/25/clarifai-python/clarifai/client/app.py:258 in create_workflow         │
+│                                                                                             │
+│   255 │   │   user_app_id=self.user_app_id, workflows=[resources_pb2.Workflow(id=workflow_i │
+│   256 │   response = self._grpc_request(self.STUB.PostWorkflows, request)                   │
+│   257 │   if response.status.code != status_code_pb2.SUCCESS:                               │
+│ ❱ 258 │     raise Exception(response.status)                                                │
+│   259 │   self.logger.info("\nWorkflow created\n%s", response.status)                       │
+│   260 │   kwargs.update({'app_id': self.id, 'user_id': self.user_id})                       │
+│   261                                                                                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────╯
+Exception: code: WORKFLOW_INVALID_ARGUMENT
+description: "Workflow invalid argument"
+details: "Node ID \'Input Task for python_globals\' does not exist in the graph of nodes"
+req_id: "9247e095f4eaa43b978b65f7753cdf2b"
+
