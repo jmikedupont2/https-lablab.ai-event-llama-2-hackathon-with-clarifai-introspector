@@ -71,7 +71,8 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                             )
                         )
                     
-                    if i == 0: #no inputs
+                    if i == 1: #no inputs
+                        print("inputs")
                         workflow_nodes.append(
                             WorkflowNode(
                                 id=node["name"],
