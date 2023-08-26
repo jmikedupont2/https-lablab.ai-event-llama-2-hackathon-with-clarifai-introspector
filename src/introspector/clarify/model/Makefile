@@ -1,2 +1,2 @@
 test:
-	python new.py
+	python step1.py
