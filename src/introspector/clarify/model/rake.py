@@ -1,5 +1,6 @@
 import json
 import versions
+import pprint
 
 model_version_lookup = versions.ModelVersionLookup()
 from clarifai_grpc.grpc.api.resources_pb2  import WorkflowNode, NodeInput, Model, ModelVersion
@@ -36,7 +37,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
         workflow_generator = WorkflowGenerator()
         target_model = "llama2_labelling_model_id"
         workflow_definitions = workflow_generator.generate_workflows(concepts,target_model)
-        latest_versions = model_version_lookup.get_latest_version(target_model)        
+
         for concept in workflow_definitions:
             print("CONCEPT",concept)
             workflow_definition = workflow_definitions[concept]
@@ -44,48 +45,57 @@ class RakeItUpContext(SimpleContextClarifaiModel):
             print(json.dumps(workflow_definition, indent=4))        
             # Step 3: Create Workflow
             print("APP",self.app)
-            print("WF",self.app.workflow)
+            #print("WF",self.app.workflow)
             workflow_nodes = []
-            print("LATEST VERSIONS",latest_versions)
-            latest_version =  list(latest_versions.items())[0]
-            print("LATEST VERSION",latest_version)
-            model=Model(
-                id=latest_version[0],
-                model_version=ModelVersion(
-                    id=latest_version[1]
-                )
-            )
 
             for i,node in enumerate(workflow_definition["nodes"]):
                 inputs = []
+
                 for x in  node.get("inputs", {}):
                     inputs.append(NodeInput(node_id=x))
+
+                    model_id = "None"
+                    if "model" in node:
+                        if node["model"]:
+                            model_id = node["model"]["id"]
+                    latest_versions = model_version_lookup.get_latest_version(model_id)        
+                    #print("LATEST VERSIONS",latest_versions)
+                    model = None
+                    if latest_versions:
+                        latest_version =  list(latest_versions.items())[0]
+                        #print("LATEST VERSION",latest_version)
+                        model=Model(
+                            id=latest_version[0],
+                            model_version=ModelVersion(
+                                id=latest_version[1]
+                            )
+                        )
                     
-                    if i >= 0:
+                    if i == 0: #no inputs
+                        workflow_nodes.append(
+                            WorkflowNode(
+                                id=node["name"],
+                                model=model,
+                                #node_inputs=inputs,
+                            ))
+                    else:
                         workflow_nodes.append(
                             WorkflowNode(
                                 id=node["name"],
                                 model=model,
                                 node_inputs=inputs,
                             ))
-                    else:
-                        workflow_nodes.append(
-                            WorkflowNode(
-                                id=node["name"],
-                                #model=model,
-                                node_inputs=inputs,
-                            ))
-
-                created_workflow = self.app.create_workflow(
-                            workflow_id="RakeItUpV1",
+            pprint.pprint({"WORKFLOW":workflow_nodes})
+            created_workflow = self.app.create_workflow(
+                            workflow_id="RakeItUpV1"+concept ,
                             #name="RakeItUp Workflow",
                     nodes=workflow_nodes)
         
                 # Step 4: Trigger Workflow
-                created_workflow_result = created_workflow.trigger()
+                #created_workflow_result = created_workflow.trigger()
         
                 # Print the result of triggering the workflow
-                print("Workflow triggered:", created_workflow_result)
+                #print("Workflow triggered:", created_workflow_result)
 
         
         

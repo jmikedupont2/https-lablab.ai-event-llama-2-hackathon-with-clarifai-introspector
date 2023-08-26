@@ -5,7 +5,8 @@ class FlattenedLabelWorkflowGenerator:
         workflows = {}
 
         # Create a workflow for each concept
-        for concept in concepts:
+        for ds in concepts:
+            concept = concepts[ds]
             workflow = self._create_workflow_for_concept(concept, labelling_model_id)
             workflows[concept] = workflow
 
@@ -15,11 +16,12 @@ class FlattenedLabelWorkflowGenerator:
         # Define the workflow nodes
         nodes = []
 
+        in_name = f"Input Task for {concept}"
         # Create input task
         input_task = {
-            "name": f"Input Task for {concept}",
+            "name": in_name,
             "model": {"id": "text-embedding"},
-            "inputs": {"unassigned": {"concepts": [{"id": "unassigned"}]}}
+            #"inputs": {"unassigned": {"concepts": [{"id": "unassigned"}]}}
         }
         nodes.append(input_task)
 
@@ -27,18 +29,18 @@ class FlattenedLabelWorkflowGenerator:
         labeller_task = {
             "name": f"Labeller for {concept}",
             "model": {"id": labelling_model_id},  # Replace with the actual labelling model ID
-            "inputs": {"from_node": f"Input Task for {concept}"}
+            "inputs": [ in_name]
         }
         nodes.append(labeller_task)
 
         # Create an output task for the labeller
-        output_task = {
-            "name": f"Output to {concept}",
-            "model": None,
-            "inputs": {"from_node": f"Labeller for {concept}"}
-        }
-        nodes.append(output_task)
-
+        #output_task = {
+        #    "name": f"Output to {concept}",
+        #    "model": None,
+        #    "inputs": {"from_node": f"Labeller for {concept}"}
+        #}
+        #nodes.append(output_task)
+        output_task = labeller_task
         # Create the workflow
         workflow_definition = {
             "nodes": nodes,

@@ -5,11 +5,14 @@ class ModelVersionLookup:
     def __init__(self):
         # Initialize the model version map with model names and their latest version IDs
         self.model_version_map = {
+            "None" : None,
             "llama2_labelling_model_id": {"llama2-7b-chat":"e52af5d6bc22445aa7a6761f327f7129"}
         }
 
     def get_latest_version(self, model_name):
-        return self.model_version_map.get(model_name, None)
+        # we neeed this
+        print("DEBUG",model_name)
+        return self.model_version_map[model_name]
 
 # Example usage
 if __name__ =="__main__":
