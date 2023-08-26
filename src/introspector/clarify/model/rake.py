@@ -1,9 +1,24 @@
 import json
+import versions
+
+model_version_lookup = versions.ModelVersionLookup()
+from clarifai_grpc.grpc.api.resources_pb2  import WorkflowNode, NodeInput, Model, ModelVersion
+#from workflow_map import ModelWorkflowGenerator
+from workflow_labels import FlattenedLabelWorkflowGenerator as WorkflowGenerator
+from simple import SimpleContextClarifaiModel
+
+#MODEL_ID_1 = 'llama2-7b-chat'
+#MODEL_VERSION_ID_1 = "e52af5d6bc22445aa7a6761f327f7129"
+
 # 1. Create a base class `RakeItUpContext` that extends `SimpleContextClarifaiModel` to provide additional functionality for the RakeItUp process.
 # 2. Use the `RakeItUpContext` class to read datasets, generate a dynamic workflow, create the workflow, and trigger its execution.
 # 3. Write a Python script using our task API to automate the process of running the RakeItUp task.
-from workflow_map import ModelWorkflowGenerator
-from simple import SimpleContextClarifaiModel
+
+#import  clarifai_grpc.grpc.api.resources_pb2
+
+#from clarifai_grpc.grpc.api.status 
+
+
 class RakeItUpContext(SimpleContextClarifaiModel):
     def __init__(self):
         super().__init__()
@@ -18,38 +33,77 @@ class RakeItUpContext(SimpleContextClarifaiModel):
         concepts = self.get_concepts()
         
         # Step 2: Generate Workflow
-        workflow_generator = ModelWorkflowGenerator()
-        workflow_definition = workflow_generator.generate_workflow(concepts)
+        workflow_generator = WorkflowGenerator()
+        target_model = "llama2_labelling_model_id"
+        workflow_definitions = workflow_generator.generate_workflows(concepts,target_model)
+        latest_versions = model_version_lookup.get_latest_version(target_model)        
+        for concept in workflow_definitions:
+            print("CONCEPT",concept)
+            workflow_definition = workflow_definitions[concept]
+            # Print the generated workflow definition as JSON
+            print(json.dumps(workflow_definition, indent=4))        
+            # Step 3: Create Workflow
+            print("APP",self.app)
+            print("WF",self.app.workflow)
+            workflow_nodes = []
+            print("LATEST VERSIONS",latest_versions)
+            latest_version =  list(latest_versions.items())[0]
+            print("LATEST VERSION",latest_version)
+            model=Model(
+                id=latest_version[0],
+                model_version=ModelVersion(
+                    id=latest_version[1]
+                )
+            )
+
+            for i,node in enumerate(workflow_definition["nodes"]):
+                inputs = []
+                for x in  node.get("inputs", {}):
+                    inputs.append(NodeInput(node_id=x))
+                    
+                    if i >= 0:
+                        workflow_nodes.append(
+                            WorkflowNode(
+                                id=node["name"],
+                                model=model,
+                                node_inputs=inputs,
+                            ))
+                    else:
+                        workflow_nodes.append(
+                            WorkflowNode(
+                                id=node["name"],
+                                #model=model,
+                                node_inputs=inputs,
+                            ))
+
+                created_workflow = self.app.create_workflow(
+                            workflow_id="RakeItUpV1",
+                            #name="RakeItUp Workflow",
+                    nodes=workflow_nodes)
         
-        # Print the generated workflow definition as JSON
-        print(json.dumps(workflow_definition, indent=4))
+                # Step 4: Trigger Workflow
+                created_workflow_result = created_workflow.trigger()
         
-        # Step 3: Create Workflow
-        created_workflow = self.app.workflow.create_workflow(name="RakeItUp Workflow", definition=workflow_definition)
-        
-        # Step 4: Trigger Workflow
-        created_workflow_result = created_workflow.trigger()
-        
-        # Print the result of triggering the workflow
-        print("Workflow triggered:", created_workflow_result)
+                # Print the result of triggering the workflow
+                print("Workflow triggered:", created_workflow_result)
 
         
         
-    def get_dataset_names_with_prefix(self, prefix="cf_dataset"):
+    def get_dataset_names_with_prefix(self, prefix="cf_dataset_"):
+        #cf_dataset_
         dataset_names = {}
         app =self.app
         datasets = app.list_datasets()
         for ds in datasets:
             name = ds.dataset_info.id
-            if name.startswith(prefix):
-                concept = name.replace(prefix,"")
-                dataset_names[name]=concept
+            concept = name.split("-")[0]
+            while concept.startswith(prefix):
+                concept = concept.replace("__","_").replace("__","_").replace("__","_")
+                concept = concept.replace(prefix,"")
+            dataset_names[name]=concept
         return dataset_names
 
 
-# 2. Write a Python Script Using Our Task API:
-
-# ```python
 
 if __name__== "__main__":
 
@@ -58,7 +112,6 @@ if __name__== "__main__":
 
     # Execute the RakeItUp workflow
     rake_it_up_context.generate_and_execute_workflow()
-# ```
 
 # This script utilizes the `RakeItUpContext` class to perform the entire RakeItUp process, including reading datasets, generating the workflow, creating the workflow, and triggering its execution.
 
@@ -208,7 +261,7 @@ if __name__== "__main__":
 # from clarifai.rest import ClarifaiApp
 # from clarifai.rest import Image as ClImage
 # from clarifai.rest import Data, Input
-# from clarifai.grpc.api import resources_pb2
+
 # from clarifai.grpc.api.status import status_code_pb2
 # import json
 
