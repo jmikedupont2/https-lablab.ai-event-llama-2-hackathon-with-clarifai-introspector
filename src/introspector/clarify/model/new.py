@@ -121,16 +121,13 @@ models = {
     "PythonGlobals": Globals(),
     "PythonTypes": Types(),
     "PythonAsts": Asts()
-}
-        
+}        
 dataset_index = {}
-
 for app in apps:
     datasets = app.list_datasets()
     for ds in datasets:
         name = ds.dataset_info.id
-        dataset_index[name] = ds
-    
+        dataset_index[name] = ds    
     for model_name in models:
         idn = "cf_dataset_"+ model_name.lower()
         if idn not in dataset_index:

@@ -1,0 +1,207 @@
+{
+    "nodes": [
+        {
+            "name": "Input Task",
+            "model": {
+                "id": "text-embedding"
+            },
+            "inputs": {
+                "data": {
+                    "concepts": [
+                        {
+                            "id": "unassigned"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Classifier for __python_globals-d21qxl",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_cf_dataset_python_globals-d21qxl",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for __python_globals-d21qxl"
+            }
+        },
+        {
+            "name": "Classifier for __python_globals-ra2xek",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_cf_dataset_python_globals-ra2xek",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for __python_globals-ra2xek"
+            }
+        },
+        {
+            "name": "Classifier for _pythonglobals",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_pythonglobals",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _pythonglobals"
+            }
+        },
+        {
+            "name": "Classifier for _pythonasts",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_pythonasts",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _pythonasts"
+            }
+        },
+        {
+            "name": "Classifier for _pythontypes",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_pythontypes",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _pythontypes"
+            }
+        },
+        {
+            "name": "Classifier for _dataset",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_dataset",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _dataset"
+            }
+        },
+        {
+            "name": "Classifier for _app",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_app",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _app"
+            }
+        },
+        {
+            "name": "Classifier for _user",
+            "model": {
+                "id": "llama2_model_id"
+            },
+            "inputs": {
+                "from_node": "Input Task"
+            }
+        },
+        {
+            "name": "Output to cf_dataset_user",
+            "model": null,
+            "inputs": {
+                "from_node": "Classifier for _user"
+            }
+        }
+    ],
+    "workflow_output": {
+        "id": [
+            {
+                "name": "Output to cf_dataset_cf_dataset_python_globals-d21qxl",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for __python_globals-d21qxl"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_cf_dataset_python_globals-ra2xek",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for __python_globals-ra2xek"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_pythonglobals",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _pythonglobals"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_pythonasts",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _pythonasts"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_pythontypes",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _pythontypes"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_dataset",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _dataset"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_app",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _app"
+                }
+            },
+            {
+                "name": "Output to cf_dataset_user",
+                "model": null,
+                "inputs": {
+                    "from_node": "Classifier for _user"
+                }
+            }
+        ]
+    }
+}
