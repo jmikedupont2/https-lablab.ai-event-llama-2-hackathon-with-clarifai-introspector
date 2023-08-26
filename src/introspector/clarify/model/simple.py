@@ -21,7 +21,7 @@ class SimpleContextClarifaiModel(BaseClarifaiModel):
                                            user_id=self.user_id,
                                            app_id=self.app_id)
         return self.auth
-                
+        
     def get_user_id_from_config(self):
         config = self.read_config_file()
         return config.get("user_id")

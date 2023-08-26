@@ -1,7 +1,7 @@
 import json
 import versions
 import pprint
-#import prompt_model not needed
+import pdb
 
 from clarifai.models.api import Models
 model_version_lookup = versions.ModelVersionLookup()
@@ -42,48 +42,30 @@ class RakeItUpContext(SimpleContextClarifaiModel):
 
         for concept in workflow_definitions:
             print("CONCEPT",concept)
-
-
             # Define your prompt template
-            prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates to that concept :'''{{data.text.raw}}'''. Your response:"
+            prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates  :'''{{data.text.raw}}'''. Your response:"
 
             # Create a prompt model
             aprompt_model = None
+            model_id  ='pmv2_' +concept
             try :
-                aprompt_model =self.app.model(                'pm_' +concept )
+                aprompt_model =self.app.model(model_id)
             except Exception as e:
                 print(e)
-                
-            model_id  ='pm_' +concept
             
             if aprompt_model is not None:
                 self.app.delete_model(
                     model_id=model_id)
                 aprompt_model= None
             if aprompt_model is None:
-                
-                #prompt_model.create_prompt_model(model_id, prompt_template, "TEMPLATE")
-                prompt_model = self.app.create_model(
-                    #user_app_id=self.app,
-                    #models=[
-                    #    resources_pb2.Model(
-                    model_id=model_id,
-                    model_type_id="prompter",
-                    #    ),
-                    #]
-                )
 
-                #prompt_model.post_model_version()
                 auth = self.get_auth_helper()
                 model_api = Models(auth)
-                output_fields_map= {}
-                resp = model_api.post_model_version(
+                resp = model_api.create_prompt_model(
                     model_id=model_id,
-                    model_zip_url=None,
-                    input={},
-                    outputs=output_fields_map,
-                )
- 
+                    prompt= prompt_template,
+                    position="TEMPLATE",
+                ) 
                 
                 #'pm_' +concept ,
                 #    output_info={
@@ -111,6 +93,9 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                 inputs = []
 
                 for x in  node.get("inputs", {}):
+
+                    pprint.pprint({"INPUT":x})
+                    
                     inputs.append(NodeInput(node_id=x))
 
                     model_id = "None"
@@ -122,7 +107,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                     model = None
                     if latest_versions:
                         latest_version =  list(latest_versions.items())[0]
-                        #print("LATEST VERSION",latest_version)
+                        print("LATEST VERSION",latest_version)
                         model=Model(
                             id=latest_version[0],
                             model_version=ModelVersion(
