@@ -1,0 +1,132 @@
+Predicted concepts for the model `pmv2_user`
+Predicted concepts for the model `llama2-7b-chat`
+status {
+  code: SUCCESS
+  description: "Ok"
+}
+input {
+  id: "d52c5bd1f9fe4ff5a95bcec697877ba5"
+  data {
+    text {
+      url: "https://samples.clarifai.com/negative_sentence_12.txt"
+    }
+  }
+}
+outputs {
+  id: "796427df809745c7985a98a26b2b497b"
+  status {
+    code: SUCCESS
+    description: "Ok"
+  }
+  created_at {
+    seconds: 1693127572
+    nanos: 54536316
+  }
+  model {
+    id: "pmv2_user"
+    name: "pmv2_user"
+    created_at {
+      seconds: 1693127496
+      nanos: 351153000
+    }
+    app_id: "my-first-application-ukuvd"
+    model_version {
+      id: "1907ac6b45c94fd3b501520c02a20400"
+      created_at {
+        seconds: 1693127496
+        nanos: 401815000
+      }
+      status {
+        code: MODEL_TRAINED
+        description: "Model is trained and ready"
+      }
+      visibility {
+        gettable: PRIVATE
+      }
+      app_id: "my-first-application-ukuvd"
+      user_id: "rxngfnlo5uhx"
+      metadata {
+      }
+    }
+    user_id: "rxngfnlo5uhx"
+    model_type_id: "prompter"
+    visibility {
+      gettable: PRIVATE
+    }
+    modified_at {
+      seconds: 1693127496
+      nanos: 351153000
+    }
+    workflow_recommended {
+    }
+  }
+  data {
+    text {
+      raw: "Hello, From the concept of user, please evalute how the following statement relates  :\'\'\'He doesn\'t have to commute to work.\'\'\'. Your response:"
+      text_info {
+        encoding: "UnknownTextEnc"
+      }
+    }
+  }
+}
+outputs {
+  id: "fabddb3df49a4d14a1bf8e5eaad19195"
+  status {
+    code: SUCCESS
+    description: "Ok"
+  }
+  created_at {
+    seconds: 1693127572
+    nanos: 54547422
+  }
+  model {
+    id: "llama2-7b-chat"
+    name: "Llama-2-7b-chat"
+    created_at {
+      seconds: 1689868549
+      nanos: 275472000
+    }
+    app_id: "Llama-2"
+    model_version {
+      id: "e52af5d6bc22445aa7a6761f327f7129"
+      created_at {
+        seconds: 1689868549
+        nanos: 283450000
+      }
+      status {
+        code: MODEL_TRAINED
+        description: "Model is trained and ready"
+      }
+      completed_at {
+        seconds: 1689872528
+        nanos: 894256000
+      }
+      visibility {
+        gettable: PUBLIC
+      }
+      app_id: "Llama-2"
+      user_id: "meta"
+      metadata {
+      }
+    }
+    user_id: "meta"
+    model_type_id: "text-to-text"
+    visibility {
+      gettable: PUBLIC
+    }
+    modified_at {
+      seconds: 1692937154
+      nanos: 633027000
+    }
+    workflow_recommended {
+    }
+  }
+  data {
+    text {
+      raw: " * This statement relates to the user because it highlights a potential benefit of using a virtual office. Without a physical commute, the user can save time and energy, and potentially reduce their carbon footprint. * This can be particularly useful for remote workers or individuals living in areas with long or difficult commutes, as it provides an alternative to traditional office arrangements. * Additionally, the statement emphasizes the flexibility and convenience of virtual offices, which can be an attractive feature for users who value flexibility and work-life balance."
+      text_info {
+        encoding: "UnknownTextEnc"
+      }
+    }
+  }
+}
