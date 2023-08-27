@@ -2,18 +2,18 @@
 
 # ```python
 
-class ModelWorkflowGenerator:
 
+class ModelWorkflowGenerator:
     def generate_workflow(self, dataset_to_concept_map):
         # Define the workflow nodes
         nodes = []
         output_tasks = []
-        
+
         # Create input task
         input_task = {
             "name": "Input Task",
             "model": {"id": "text-embedding"},
-            "inputs": {"data": {"concepts": [{"id": "unassigned"}]}}
+            "inputs": {"data": {"concepts": [{"id": "unassigned"}]}},
         }
         nodes.append(input_task)
 
@@ -21,27 +21,26 @@ class ModelWorkflowGenerator:
         for dataset_id, concept_id in dataset_to_concept_map.items():
             classifier_task = {
                 "name": f"Classifier for {concept_id}",
-                "model": {"id": "llama2_model_id"},  # Replace with the actual model ID
-                "inputs": {"from_node": "Input Task"}
+                # Replace with the actual model ID
+                "model": {"id": "llama2_model_id"},
+                "inputs": {"from_node": "Input Task"},
             }
             nodes.append(classifier_task)
-            
+
             # Create an output task for each dataset
             output_task = {
                 "name": f"Output to {dataset_id}",
                 "model": None,
-                "inputs": {"from_node": f"Classifier for {concept_id}"}
+                "inputs": {"from_node": f"Classifier for {concept_id}"},
             }
             nodes.append(output_task)
             output_tasks.append(output_task)
-        
+
         # Create the workflow
-        workflow_definition = {
-            "nodes": nodes,
-            "workflow_output": {"id": output_tasks}
-        }
+        workflow_definition = {"nodes": nodes, "workflow_output": {"id": output_tasks}}
 
         return workflow_definition
+
 
 # # Example usage
 # app_id = "your_app_id"

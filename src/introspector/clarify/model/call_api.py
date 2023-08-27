@@ -1,8 +1,10 @@
-
 ######################################################################################################
-# In this section, we set the user authentication, user and app ID, model details, and the URL of 
+# In this section, we set the user authentication, user and app ID, model details, and the URL of
 # the text we want as an input. Change these strings to run your own example.
 ######################################################################################################
+from clarifai_grpc.grpc.api.status import status_code_pb2
+from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
+from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
 import simple
 
 # Your PAT (Personal Access Token) can be found in the portal under Authentification
@@ -14,43 +16,38 @@ APP_ID = simple.model.app_id
 
 
 # Change these to whatever model and text URL you want to use
-WORKFLOW_ID = 'workflow-0722f2'
-TEXT_FILE_URL = 'https://samples.clarifai.com/negative_sentence_12.txt'
+WORKFLOW_ID = "workflow-0722f2"
+TEXT_FILE_URL = "https://samples.clarifai.com/negative_sentence_12.txt"
 
 ############################################################################
 # YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
 ############################################################################
 
-from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
-from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
-from clarifai_grpc.grpc.api.status import status_code_pb2
 
 channel = ClarifaiChannel.get_grpc_channel()
 stub = service_pb2_grpc.V2Stub(channel)
 
-metadata = (('authorization', 'Key ' + PAT),)
+metadata = (("authorization", "Key " + PAT),)
 
 userDataObject = resources_pb2.UserAppIDSet(user_id=USER_ID, app_id=APP_ID)
 
 post_workflow_results_response = stub.PostWorkflowResults(
     service_pb2.PostWorkflowResultsRequest(
-        user_app_id=userDataObject,  
+        user_app_id=userDataObject,
         workflow_id=WORKFLOW_ID,
         inputs=[
             resources_pb2.Input(
-                data=resources_pb2.Data(
-                    text=resources_pb2.Text(
-                        url=TEXT_FILE_URL
-                    )
-                )
+                data=resources_pb2.Data(text=resources_pb2.Text(url=TEXT_FILE_URL))
             )
-        ]
+        ],
     ),
-    metadata=metadata
+    metadata=metadata,
 )
 if post_workflow_results_response.status.code != status_code_pb2.SUCCESS:
     print(post_workflow_results_response.status)
-    raise Exception("Post workflow results failed, status: " + post_workflow_results_response.status.description)
+    raise Exception(
+        "Post workflow results failed, status: " + post_workflow_results_response.status.description
+    )
 
 # We'll get one WorkflowResult for each input we used above. Because of one input, we have here one WorkflowResult
 results = post_workflow_results_response.results[0]
