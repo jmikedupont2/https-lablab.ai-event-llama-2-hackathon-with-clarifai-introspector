@@ -42,100 +42,125 @@ class RakeItUpContext(SimpleContextClarifaiModel):
 
         for concept in workflow_definitions:
             print("CONCEPT",concept)
-            # Define your prompt template
-            prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates  :'''{{data.text.raw}}'''. Your response:"
-
-            # Create a prompt model
-            aprompt_model = None
-            model_id  ='pmv2_' +concept
-            try :
-                aprompt_model =self.app.model(model_id)
-            except Exception as e:
-                print(e)
-            
-            if aprompt_model is not None:
-                self.app.delete_model(
-                    model_id=model_id)
-                aprompt_model= None
-            if aprompt_model is None:
-
-                auth = self.get_auth_helper()
-                model_api = Models(auth)
-                resp = model_api.create_prompt_model(
-                    model_id=model_id,
-                    prompt= prompt_template,
-                    position="TEMPLATE",
-                ) 
-                
-                #'pm_' +concept ,
-                #    output_info={
-                #        "output_config" :
-                #        {
-                            #'concepts': [{'id': 'prompt'}], 'metadata': {'template': prompt_template}
-                 #        }
-                 #        },
-                 #   #concepts=['prompt']
-                #)
-            pprint.pprint(prompt_model)
-            #prompt_model.update_output_info(data={'concepts': [{'id': 'prompt'}], 'metadata': {'template': prompt_template}})
-            
-            
-
             workflow_definition = workflow_definitions[concept]
-            # Print the generated workflow definition as JSON
-            print(json.dumps(workflow_definition, indent=4))        
-            # Step 3: Create Workflow
-            print("APP",self.app)
-            #print("WF",self.app.workflow)
-            workflow_nodes = []
-
+            print("workflow_definition",workflow_definition)
+            # Define your prompt template
+            #####
+            #pdb.set_trace()
+            workflow_nodes = [
+                #WorkflowNode(
+                 #   id="Input",
+                 #   model= {"id": "text-embedding"},
+                #)
+            ]
+            prev_node_id = None
             for i,node in enumerate(workflow_definition["nodes"]):
                 inputs = []
-
                 for x in  node.get("inputs", {}):
-
-                    pprint.pprint({"INPUT":x})
-                    
+                    #pprint.pprint({"INPUT":x})
                     inputs.append(NodeInput(node_id=x))
-
                     model_id = "None"
+                    model = None
                     if "model" in node:
                         if node["model"]:
                             model_id = node["model"]["id"]
-                    latest_versions = model_version_lookup.get_latest_version(model_id)        
-                    #print("LATEST VERSIONS",latest_versions)
-                    model = None
-                    if latest_versions:
-                        latest_version =  list(latest_versions.items())[0]
-                        print("LATEST VERSION",latest_version)
+                        if model_id == "dynamic-prompter":
+                            prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates  :'''{{data.text.raw}}'''. Your response:"
+
+                            # Create a prompt model
+                            aprompt_model = None
+                            model_id  ='pmv2_' +concept
+                            try :
+                                aprompt_model =self.app.model(model_id)
+                            except Exception as e:
+                                print(e)
+                
+                            if aprompt_model is not None:
+                                self.app.delete_model(
+                                model_id=model_id)
+                                aprompt_model= None
+                                
+                            if aprompt_model is None:
+                                auth = self.get_auth_helper()
+                                model_api = Models(auth)
+                                resp = model_api.create_prompt_model(
+                                    app_id=self.app_id,
+                                    user_id=self.user_id,
+                                    model_id=model_id,
+                                    prompt= prompt_template,
+                                    position="TEMPLATE",
+                                )
+                                #pdb.set_trace()
+                                #model_id = resp.id
+                                latest_version = [
+                                    resp.id, resp.model_version.id
+                                ]
+                                #pprint.pprint(resp)
+                        else:                           
+                            latest_versions = model_version_lookup.get_latest_version(
+                                model_id)
+                            if latest_versions:
+                                latest_version =  list(latest_versions.items())[0]
+                        version_id = latest_version[1]
+                        #print("LATEST VERSION",latest_version,version_id)
                         model=Model(
                             id=latest_version[0],
                             model_version=ModelVersion(
-                                id=latest_version[1]
-                            )
+                                id=version_id,
+                            ))
+                        #print("LATEST MODEL",model)
+                        args =dict(
+                            model=model,
                         )
 
-                    ####
-                    args ={}
-                    args.update(node)
-                    args =dict( model=model)
-                    node2 = WorkflowNode(**args)
-                    pprint.pprint({"DEBUG_NODE" : [i, node]})
-                    pprint.pprint({"DEBUG_NODE OUT" : [i, node2]})
-                    workflow_nodes.append(node2)
-                    
-            pprint.pprint({"WORKFLOW":workflow_nodes})
-            created_workflow = self.app.create_workflow(
-                            workflow_id="RakeItUpV1"+concept ,
-                            #name="RakeItUp Workflow",
-                    nodes=workflow_nodes)
-        
-                # Step 4: Trigger Workflow
-                #created_workflow_result = created_workflow.trigger()
-        
-                # Print the result of triggering the workflow
-                #print("Workflow triggered:", created_workflow_result)
+                        ### if second node, string to first
+                        ### fixme
+                        if prev_node_id is not None:
+                            args["node_inputs"]=[ 
+                                NodeInput(node_id=prev_node_id)
+                            ]
+                        #args.update()
 
+                        node_id = node["id"]
+                        args["id"]=node_id
+                        prev_node_id = node_id
+                        node2 = WorkflowNode(**args)
+                        pprint.pprint({"DEBUG_NODE" : [i, node, args]})
+                        pprint.pprint({"DEBUG_NODE OUT" : [i, node2]})
+                        workflow_nodes.append(node2)
+
+                        # nodes=[
+                        #     WorkflowNode(
+                        #         id=NODE_ID_1,
+                        #         model=Model(
+                        #             id=MODEL_ID_1,
+                        #             model_version=ModelVersion(
+                        #                 id=MODEL_VERSION_ID_1
+                        #         )
+                        #         )
+                        #     ),
+                        #     resources_pb2.WorkflowNode(
+                        #     id=NODE_ID_2,
+                        #         model=resources_pb2.Model(
+                        #             id=MODEL_ID_2,
+                        #             model_version=resources_pb2.ModelVersion(
+                        #                 id=MODEL_VERSION_ID_2
+                        #             )
+                        #         ),
+                        #     ),
+                        # ]
+
+            #pdb.set_trace()    
+            pprint.pprint({"WORKFLOW":workflow_nodes})
+            created_workflow = self.app.delete_workflow(workflow_id="RakeItUpV1"+concept)
+            created_workflow = self.app.create_workflow(
+                workflow_id="RakeItUpV1"+concept,
+                nodes=workflow_nodes)
+            # Step 4: Trigger Workflow
+            #created_workflow_result = created_workflow.trigger()
+        
+            # Print the result of triggering the workflow
+            #print("Workflow triggered:", created_workflow_result)
         
         
     def get_dataset_names_with_prefix(self, prefix="cf_dataset_"):

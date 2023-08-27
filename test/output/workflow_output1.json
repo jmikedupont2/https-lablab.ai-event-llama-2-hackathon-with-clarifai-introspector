@@ -1,38 +1,125 @@
 CONCEPT python_globals
-2023-08-26 17:16:14 INFO     INFO:clarifai.client.app:                               app.py:436
+2023-08-26 18:03:29 INFO     INFO:clarifai.client.app:                               app.py:436
                              Model Deleted                                                     
                              code: SUCCESS                                                     
                              description: "Ok"                                                 
-                             req_id: "2bd928143aae861622c986e04df18d16"                        
+                             req_id: "1d0b41b54d9eac20848c5218fc7840c1"                        
                                                                                                
-                    INFO     INFO:clarifai.client.app:                               app.py:234
-                             Model created                                                     
-                             code: SUCCESS                                                     
-                             description: "Ok"                                                 
-                             req_id: "8cd57c5539c21202298b7b0dccd5cde9"                        
-                                                                                               
+{
+    "nodes": [
+        {
+            "id": "Input Task for python_globals",
+            "model": {
+                "id": "text-embedding"
+            }
+        },
+        {
+            "id": "Prompter Node",
+            "model": null,
+            "inputs": [
+                "Input Task for python_globals"
+            ],
+            "constants": {
+                "prompt_template": "Hello, From the concept of python_globals, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"
+            }
+        },
+        {
+            "id": "Labeller for python_globals",
+            "model": {
+                "id": "llama2_labelling_model_id"
+            },
+            "inputs": [
+                "Prompter Node"
+            ]
+        }
+    ],
+    "workflow_output": {
+        "id": {
+            "id": "Labeller for python_globals",
+            "model": {
+                "id": "llama2_labelling_model_id"
+            },
+            "inputs": [
+                "Prompter Node"
+            ]
+        }
+    }
+}
+APP Clarifai App Details: 
+user_id=rxngfnlo5uhx, id=my-first-application-ukuvd
+
+{'INPUT': 'Input Task for python_globals'}
+DEBUG None
+{'DEBUG_NODE': [1,
+                {'constants': {'prompt_template': 'Hello, From the concept of '
+                                                  'python_globals, please '
+                                                  'evalute how the following '
+                                                  'statement relates to that '
+                                                  'concept '
+                                                  ":'''{data.text.raw}'''. "
+                                                  'Your response:'},
+                 'id': 'Prompter Node',
+                 'inputs': ['Input Task for python_globals'],
+                 'model': None}]}
+{'DEBUG_NODE OUT': [1, ]}
+{'INPUT': 'Prompter Node'}
+DEBUG llama2_labelling_model_id
+LATEST VERSION ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [2,
+                {'id': 'Labeller for python_globals',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}}]}
+{'DEBUG_NODE OUT': [2,
+                    model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+]}
+{'WORKFLOW': [,
+              model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+]}
 ╭───────────────────────────── Traceback (most recent call last) ─────────────────────────────╮
 │ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
-│ c/introspector/clarify/model/rake.py:182 in <module>                                        │
+│ c/introspector/clarify/model/rake.py:166 in <module>                                        │
 │                                                                                             │
-│   179 │   rake_it_up_context = RakeItUpContext()                                            │
-│   180 │                                                                                     │
-│   181 │   # Execute the RakeItUp workflow                                                   │
-│ ❱ 182 │   rake_it_up_context.generate_and_execute_workflow()                                │
-│   183                                                                                       │
-│   184 # This script utilizes the `RakeItUpContext` class to perform the entire RakeItUp pro │
-│   185                                                                                       │
+│   163 │   rake_it_up_context = RakeItUpContext()                                            │
+│   164 │                                                                                     │
+│   165 │   # Execute the RakeItUp workflow                                                   │
+│ ❱ 166 │   rake_it_up_context.generate_and_execute_workflow()                                │
+│   167                                                                                       │
+│   168 # This script utilizes the `RakeItUpContext` class to perform the entire RakeItUp pro │
+│   169                                                                                       │
 │                                                                                             │
 │ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
-│ c/introspector/clarify/model/rake.py:81 in generate_and_execute_workflow                    │
+│ c/introspector/clarify/model/rake.py:131 in generate_and_execute_workflow                   │
 │                                                                                             │
-│    78 │   │   │   │   │   "prompt_template": prompt_template,                               │
-│    79 │   │   │   │   │   "position": "TEMPLATE",                                           │
-│    80 │   │   │   │   }                                                                     │
-│ ❱  81 │   │   │   │   resp = model_api.post_model_version(                                  │
-│    82 │   │   │   │   │   model_id=model_id,                                                │
-│    83 │   │   │   │   │   #model_zip_url=None,                                              │
-│    84 │   │   │   │   │   #input={},                                                        │
+│   128 │   │   │   │   │   workflow_nodes.append(node2)                                      │
+│   129 │   │   │                                                                             │
+│   130 │   │   │   pprint.pprint({"WORKFLOW":workflow_nodes})                                │
+│ ❱ 131 │   │   │   created_workflow = self.app.create_workflow(                              │
+│   132 │   │   │   │   │   │   │   workflow_id="RakeItUpV1"+concept ,                        │
+│   133 │   │   │   │   │   │   │   #name="RakeItUp Workflow",                                │
+│   134 │   │   │   │   │   nodes=workflow_nodes)                                             │
+│                                                                                             │
+│ /mnt/data1/2023/08/25/clarifai-python/clarifai/client/app.py:258 in create_workflow         │
+│                                                                                             │
+│   255 │   │   user_app_id=self.user_app_id, workflows=[resources_pb2.Workflow(id=workflow_i │
+│   256 │   response = self._grpc_request(self.STUB.PostWorkflows, request)                   │
+│   257 │   if response.status.code != status_code_pb2.SUCCESS:                               │
+│ ❱ 258 │     raise Exception(response.status)                                                │
+│   259 │   self.logger.info("\nWorkflow created\n%s", response.status)                       │
+│   260 │   kwargs.update({'app_id': self.id, 'user_id': self.user_id})                       │
+│   261                                                                                       │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────╯
-TypeError: Models.post_model_version() missing 2 required positional arguments: 'model_zip_url'
-and 'input'
+Exception: code: WORKFLOW_INVALID_ARGUMENT
+description: "Workflow invalid argument"
+details: "Workflow node \'0\' needs an \'id\' specified."
+req_id: "2e65455554de20589e1fbd2d541baf6e"
+

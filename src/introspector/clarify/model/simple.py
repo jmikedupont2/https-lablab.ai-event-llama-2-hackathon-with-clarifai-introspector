@@ -53,6 +53,6 @@ class SimpleContextClarifaiModel(BaseClarifaiModel):
 
 
 
-if __name__ == "__main__":
-    model = SimpleContextClarifaiModel()
-#    model.create_datasets()
+
+model = SimpleContextClarifaiModel()
+

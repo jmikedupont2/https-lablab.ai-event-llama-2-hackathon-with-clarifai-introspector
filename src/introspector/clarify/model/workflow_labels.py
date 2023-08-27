@@ -25,11 +25,10 @@ class FlattenedLabelWorkflowGenerator:
         }
         prompt_task = {
             "id": "Prompter Node",
-            "model": None,
+            
+            "model": {"id": "dynamic-prompter"},  # Replace with the actual labelling model ID
             "inputs": [ in_name],
-            "constants": {
-                "prompt_template": f"Hello, From the concept of {concept}, please evalute how the following statement relates to that concept :'''{{data.text.raw}}'''. Your response:"
-            }
+            "prompt_template": f"Hello, From the concept of {concept}, please evalute how the following statement relates to that concept :'''{{data.text.raw}}'''. Your response:"
         }
         
         # Create a labeller task for the concept
@@ -40,7 +39,7 @@ class FlattenedLabelWorkflowGenerator:
         }
         
         ### workflow
-        nodes.append(input_task)
+        #nodes.append(input_task)
         nodes.append(prompt_task)
         nodes.append(labeller_task)
 
