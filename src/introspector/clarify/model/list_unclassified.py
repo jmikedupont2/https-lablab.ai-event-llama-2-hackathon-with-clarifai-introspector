@@ -10,6 +10,13 @@ from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
 from clarifai_grpc.grpc.api.status import status_code_pb2
 
 import simple
+from ratelimit import limits, RateLimitException
+
+#import requests
+
+#FIFTEEN_MINUTES = 900
+
+
 
 PAT = simple.model.api_key
 USER_ID = simple.model.user_id
@@ -34,10 +41,18 @@ def write_input(input_object):
     fn = "outputs/"+input_object.id
     if not os.path.exists(fn):
         with open(fn,"bw") as of:
-            data = get_input(input_object.id)
+
+            data = None
+            while data is None:
+                try:
+                    data = get_input(input_object.id)
+                except RateLimitException as e:
+                    time.sleep(1)
+                    print("oops")
+
             of.write(data.SerializeToString())
 
-
+@limits(calls=10, period=1)
 def get_input(input_id):
     get_input_response = stub.GetInput(
         service_pb2.GetInputRequest(
@@ -48,14 +63,15 @@ def get_input(input_id):
     )
 
     if get_input_response.status.code == 10000:
-        time.sleep(1)
-        return get_input(input_id)
+        print("RATELIMIT")
+        return
         
     if get_input_response.status.code != status_code_pb2.SUCCESS:
         print("STATUS",get_input_response.status)
         print("STATUSCODE",stream_inputs_response.status.code)
         raise Exception("Get input failed, status: " + get_input_response.status.description)
 
+    
     input_object = get_input_response.input
     #print("DEBUG" +str(input_object))
     #pprint.pprint(
@@ -74,10 +90,13 @@ while True:
 
     print(f"Next response (first input is the one following input ID {last_id}):")
     for input_object in stream_inputs_response.inputs:
-        write_input(input_object)
+        try :
+            write_input(input_object)
+        except Exception as e:
+            print(e) # ok
         #    print("OUT",input_object)
         #    print(dir(input_object))
         #    print(type(input_object))
-        time.sleep(1)
+        #time.sleep(1)
     last_id = stream_inputs_response.inputs[-1].id
     
