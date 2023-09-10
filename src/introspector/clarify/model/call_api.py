@@ -16,25 +16,16 @@ USER_ID = simple.model.user_id
 APP_ID = simple.model.app_id
 
 
-# Change these to whatever model and text URL you want to use
-WORKFLOW_ID = "workflow-0722f2"
-TEXT_FILE_URL = "https://samples.clarifai.com/negative_sentence_12.txt"
 
 ############################################################################
 # YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
 ############################################################################
 
 def call_workflow(stub, metadata, userDataObject, workflow, data_url):
-    #channel = ClarifaiChannel.get_grpc_channel()
-    #stub = service_pb2_grpc.V2Stub(channel)
-    #metadata = (("authorization", "Key " + PAT),)
-
-    #userDataObject = resources_pb2.UserAppIDSet(user_id=USER_ID, app_id=APP_ID)
-
     post_workflow_results_response = stub.PostWorkflowResults(
         service_pb2.PostWorkflowResultsRequest(
             user_app_id=userDataObject,
-            workflow_id=WORKFLOW_ID,
+            workflow_id=workflow,
             inputs=[
                 resources_pb2.Input(
                     data=resources_pb2.Data(text=resources_pb2.Text(url=data_url))
