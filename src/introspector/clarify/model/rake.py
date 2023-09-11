@@ -7,8 +7,6 @@ from clarifai_grpc.grpc.api.resources_pb2 import (
     ModelVersion,
 )
 
-import pdb
-
 import versions
 import pprint
 from clarifai.models.api import Models
@@ -81,7 +79,6 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                                 pprint.pprint(resp)
                             else:
                                 latest_versions = aprompt_model.list_versions()
-                                #pdb.set_trace()   
                                 if latest_versions:
                                     resp = list(latest_versions)[0]
                                     latest_version = [resp.id, resp.model_version.id]
@@ -95,7 +92,6 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                             )
                             if latest_versions:
                                 latest_version = list(latest_versions.items())[0]
-                                #pdb.set_trace()
                                 print("DEBUG111",latest_version)
                             else:
                                 raise Exception(latest_version)
