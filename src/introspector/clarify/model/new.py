@@ -76,6 +76,13 @@ class Asts(Common):
     pass
 
 
+
+class GenericIdea(Common):
+    def __init__(self, name):
+        self.name = name
+        super().__init__()
+
+
 # must be set as env vars
 config = {}
 
@@ -114,6 +121,9 @@ class Globals(Common):
         for objectn in globals():
             value = globals()[objectn]
             fstr = redact(str(value))
+
+            object_id = lookup_id(fstr)
+                            
             labels = [objectn, str(type(value))]
             labels.extend(dir(value))
             labels.extend(dir(type(value)))
@@ -123,6 +133,7 @@ class Globals(Common):
                 data=data,
                 # labels=labels,
                 # id=str(id(value))
+                lookup_id(fstr)
             )
             dataset.append(input_proto)
         return dataset
@@ -136,6 +147,50 @@ models = {
     "PythonTypes": Types(),
     "PythonAsts": Asts(),
 }
+
+
+for name in [
+        "Concepts",
+        "Workflows",
+        "WebPlatforms",
+        "Ontologies",
+        "Models",
+        "ModelVersions",
+        "ServiceDefinitions",
+        "Streamlits",
+        "Secrets",
+        "AWSAccounts",
+        "GithubOrgs",
+        "GithubDiscussions",
+        "GithubWiki",
+        "Wikipedias",
+        "MediaWikis",
+        "PhpProjects",
+        "PythonProjects",
+        "CPlusPlusProjects",
+        "CLanguageProjects",
+        "CompilerProjects",
+        "LanguageProjects",
+        "CoqProjects",
+        "ProofEngineProjects",
+        "GithubRepos",
+        "Hackathons",
+        "AGISystems",
+        "ChatBots",
+        "ChatPlatforms",
+        "PredictionSystems",
+        "LabelingSystems",
+        "WorkflowSystems",
+        "WorkSystems",
+        "Computerystems",
+        "MetaPrograms",
+        "MetaMemes",
+        "Memes",
+        "MetaQuines",
+        "Quines",
+]:
+    models[name]=GenericIdea(name)
+
 dataset_index = {}
 for app in apps:
     datasets = app.list_datasets()
