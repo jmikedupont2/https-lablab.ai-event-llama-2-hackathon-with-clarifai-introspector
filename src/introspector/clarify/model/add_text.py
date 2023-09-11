@@ -1,6 +1,8 @@
 from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
 from clarifai_grpc.grpc.api.status import status_code_pb2
+from ratelimit import limits, RateLimitException
 
+@limits(calls=10, period=1)
 def add_text(stub,userDataObject,metadata,fstr):
     text_data = resources_pb2.Text(raw=fstr)
     data = resources_pb2.Data(text=text_data)
