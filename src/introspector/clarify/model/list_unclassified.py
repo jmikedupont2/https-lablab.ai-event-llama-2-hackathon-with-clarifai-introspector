@@ -92,7 +92,9 @@ for input_object in stream_inputs_response.inputs:
 
 last_id = stream_inputs_response.inputs[-1].id
 
-while True:
+
+    
+while last_id != 0:
     stream_inputs_response = stub.StreamInputs(
         service_pb2.StreamInputsRequest(
             user_app_id=userDataObject,
@@ -101,6 +103,9 @@ while True:
     print(f"Next response (first input is the one following input ID {last_id}):")
     for input_object in stream_inputs_response.inputs:
         write_input(input_object)
-
-    last_id = stream_inputs_response.inputs[-1].id
+    if stream_inputs_response.inputs:
+        last_id = stream_inputs_response.inputs[-1].id
+    else:
+        print(stream_inputs_response)
+        last_id = 0
     
