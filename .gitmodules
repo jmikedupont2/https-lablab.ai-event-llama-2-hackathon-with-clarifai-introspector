@@ -1,0 +1,3 @@
+[submodule "vendor/clarifai"]
+	path = vendor/clarifai
+	url = https://github.com/jmikedupont2/clarifai-python/
