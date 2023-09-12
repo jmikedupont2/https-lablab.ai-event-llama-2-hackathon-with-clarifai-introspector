@@ -13,18 +13,11 @@ for filename in file_list:
         # Split the filename by the first N characters
         file_prefix = filename[:N]
         file_suffix = filename[N:]
-
-        # Split the directory path by the file_prefix
         directory_parts = directory_path.split(file_prefix, 1)
-
-        # Construct the new directory path
         new_directory = os.path.join(directory_parts[0], file_prefix)
-
-        # Create the new directory if it doesn't exist
         if not os.path.exists(new_directory):
             os.makedirs(new_directory)
 
-        # Move the file to the new directory with the modified name
         new_file_path = os.path.join(new_directory, file_suffix)
         old_file_path = os.path.join(directory_path, filename)
         os.rename(old_file_path, new_file_path)

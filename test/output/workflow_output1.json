@@ -1,125 +1,847 @@
-CONCEPT python_globals
-2023-08-26 18:03:29 INFO     INFO:clarifai.client.app:                               app.py:436
-                             Model Deleted                                                     
-                             code: SUCCESS                                                     
-                             description: "Ok"                                                 
-                             req_id: "1d0b41b54d9eac20848c5218fc7840c1"                        
-                                                                                               
-{
-    "nodes": [
-        {
-            "id": "Input Task for python_globals",
-            "model": {
-                "id": "text-embedding"
-            }
-        },
-        {
-            "id": "Prompter Node",
-            "model": null,
-            "inputs": [
-                "Input Task for python_globals"
-            ],
-            "constants": {
-                "prompt_template": "Hello, From the concept of python_globals, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"
-            }
-        },
-        {
-            "id": "Labeller for python_globals",
-            "model": {
-                "id": "llama2_labelling_model_id"
-            },
-            "inputs": [
-                "Prompter Node"
-            ]
-        }
-    ],
-    "workflow_output": {
-        "id": {
-            "id": "Labeller for python_globals",
-            "model": {
-                "id": "llama2_labelling_model_id"
-            },
-            "inputs": [
-                "Prompter Node"
-            ]
-        }
-    }
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
 }
-APP Clarifai App Details: 
-user_id=rxngfnlo5uhx, id=my-first-application-ukuvd
 
-{'INPUT': 'Input Task for python_globals'}
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f2323498d80>
+state <grpc._channel._RPCState object at 0x7f2323495960>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23234f52c0>
+state <grpc._channel._RPCState object at 0x7f23234f9990>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+CONCEPT Create_prompt_model_that_will
+CONCEPT Construct_a_prompt_that_will_have_the_effect_of
+CONCEPT Imagine_instructions_will_have_the_effect_of
+CONCEPT Instructions_for
+CONCEPT Instructions_about
+CONCEPT Structure_of
+CONCEPT Construction_of
+CONCEPT Deconstruction_of
+CONCEPT Reconstruction_of
+CONCEPT Critical_Reconstruction_of
+CONCEPT Create_prompt_model_that_will
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Create_prompt_model_that_will'], 'prompt_template': "Hello, From the concept of Create_prompt_model_that_will, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Create_prompt_model_that_will', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Create_prompt_model_that_will', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Create_prompt_model_that_will"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x1dCreate_prompt_model_that_will'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232351fc00>
+state <grpc._channel._RPCState object at 0x7f23235254b0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Create_prompt_model_that_will and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Create_prompt_model_that_will"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x1dCreate_prompt_model_that_will\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f380>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Create_prompt_model_that_will in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Create_prompt_model_that_will"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x1dCreate_prompt_model_that_will\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f500>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 Relate Create_prompt_model_that_will to'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Create_prompt_model_that_will"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x1dCreate_prompt_model_that_will\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f680>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
 DEBUG None
-{'DEBUG_NODE': [1,
-                {'constants': {'prompt_template': 'Hello, From the concept of '
-                                                  'python_globals, please '
-                                                  'evalute how the following '
-                                                  'statement relates to that '
-                                                  'concept '
-                                                  ":'''{data.text.raw}'''. "
-                                                  'Your response:'},
-                 'id': 'Prompter Node',
-                 'inputs': ['Input Task for python_globals'],
-                 'model': None}]}
-{'DEBUG_NODE OUT': [1, ]}
-{'INPUT': 'Prompter Node'}
+no verssion!
+getlatest2
 DEBUG llama2_labelling_model_id
-LATEST VERSION ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
-{'DEBUG_NODE': [2,
-                {'id': 'Labeller for python_globals',
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Create_prompt_model_that_will',
                  'inputs': ['Prompter Node'],
-                 'model': {'id': 'llama2_labelling_model_id'}}]}
-{'DEBUG_NODE OUT': [2,
-                    model {
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Create_prompt_model_that_will',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Create_prompt_model_that_will"
+model {
   id: "llama2-7b-chat"
   model_version {
     id: "e52af5d6bc22445aa7a6761f327f7129"
   }
 }
 ]}
-{'WORKFLOW': [,
-              model {
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV2Create_prompt_model_that_will"
+  nodes {
+    id: "Labeller for Create_prompt_model_that_will"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x8d\x01\n\'RakeItUpV2Create_prompt_model_that_will"b\n*Labeller for Create_prompt_model_that_will\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f940>
+state <grpc._channel._RPCState object at 0x7f23203a1480>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+error code: DATABASE_DUPLICATE_KEY
+description: "Object has a duplicate ID; another object with same ID already exists."
+details: "Object has a duplicate ID; another object with same ID already exists."
+req_id: "6c95fbcc447b0510587a84d6fdc36224"
+
+CONCEPT Construct_a_prompt_that_will_have_the_effect_of
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Construct_a_prompt_that_will_have_the_effect_of'], 'prompt_template': "Hello, From the concept of Construct_a_prompt_that_will_have_the_effect_of, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Construct_a_prompt_that_will_have_the_effect_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Construct_a_prompt_that_will_have_the_effect_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Construct_a_prompt_that_will_have_the_effect_of"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12/Construct_a_prompt_that_will_have_the_effect_of'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354ff80>
+state <grpc._channel._RPCState object at 0x7f2320393eb0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Construct_a_prompt_that_will_have_the_effect_of and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Construct_a_prompt_that_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12/Construct_a_prompt_that_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354f2c0>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Construct_a_prompt_that_will_have_the_effect_of in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Construct_a_prompt_that_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12/Construct_a_prompt_that_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038fd00>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 Relate Construct_a_prompt_that_will_have_the_effect_of to'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Construct_a_prompt_that_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12/Construct_a_prompt_that_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354ff80>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG None
+no verssion!
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for '
+                       'Construct_a_prompt_that_will_have_the_effect_of',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for '
+                       'Construct_a_prompt_that_will_have_the_effect_of',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Construct_a_prompt_that_will_have_the_effect_of"
+model {
   id: "llama2-7b-chat"
   model_version {
     id: "e52af5d6bc22445aa7a6761f327f7129"
   }
 }
 ]}
-╭───────────────────────────── Traceback (most recent call last) ─────────────────────────────╮
-│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
-│ c/introspector/clarify/model/rake.py:166 in <module>                                        │
-│                                                                                             │
-│   163 │   rake_it_up_context = RakeItUpContext()                                            │
-│   164 │                                                                                     │
-│   165 │   # Execute the RakeItUp workflow                                                   │
-│ ❱ 166 │   rake_it_up_context.generate_and_execute_workflow()                                │
-│   167                                                                                       │
-│   168 # This script utilizes the `RakeItUpContext` class to perform the entire RakeItUp pro │
-│   169                                                                                       │
-│                                                                                             │
-│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/sr │
-│ c/introspector/clarify/model/rake.py:131 in generate_and_execute_workflow                   │
-│                                                                                             │
-│   128 │   │   │   │   │   workflow_nodes.append(node2)                                      │
-│   129 │   │   │                                                                             │
-│   130 │   │   │   pprint.pprint({"WORKFLOW":workflow_nodes})                                │
-│ ❱ 131 │   │   │   created_workflow = self.app.create_workflow(                              │
-│   132 │   │   │   │   │   │   │   workflow_id="RakeItUpV1"+concept ,                        │
-│   133 │   │   │   │   │   │   │   #name="RakeItUp Workflow",                                │
-│   134 │   │   │   │   │   nodes=workflow_nodes)                                             │
-│                                                                                             │
-│ /mnt/data1/2023/08/25/clarifai-python/clarifai/client/app.py:258 in create_workflow         │
-│                                                                                             │
-│   255 │   │   user_app_id=self.user_app_id, workflows=[resources_pb2.Workflow(id=workflow_i │
-│   256 │   response = self._grpc_request(self.STUB.PostWorkflows, request)                   │
-│   257 │   if response.status.code != status_code_pb2.SUCCESS:                               │
-│ ❱ 258 │     raise Exception(response.status)                                                │
-│   259 │   self.logger.info("\nWorkflow created\n%s", response.status)                       │
-│   260 │   kwargs.update({'app_id': self.id, 'user_id': self.user_id})                       │
-│   261                                                                                       │
-╰─────────────────────────────────────────────────────────────────────────────────────────────╯
-Exception: code: WORKFLOW_INVALID_ARGUMENT
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV2Construct_a_prompt_that_will_have_the_effect_of"
+  nodes {
+    id: "Labeller for Construct_a_prompt_that_will_have_the_effect_of"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xb1\x01\n9RakeItUpV2Construct_a_prompt_that_will_have_the_effect_of"t\n<Labeller for Construct_a_prompt_that_will_have_the_effect_of\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f780>
+state <grpc._channel._RPCState object at 0x7f23203a14b0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+error code: WORKFLOW_INVALID_ARGUMENT
 description: "Workflow invalid argument"
-details: "Workflow node \'0\' needs an \'id\' specified."
-req_id: "2e65455554de20589e1fbd2d541baf6e"
+details: "Invalid Workflow ID. \'id\' (\'RakeItUpV2Construct_a_prompt_that_will_have_the_effect_of\') must be between 1 and 48 characters long."
+req_id: "fae36038f9d478525a3233f464bb13eb"
+
+CONCEPT Imagine_instructions_will_have_the_effect_of
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Imagine_instructions_will_have_the_effect_of'], 'prompt_template': "Hello, From the concept of Imagine_instructions_will_have_the_effect_of, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Imagine_instructions_will_have_the_effect_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Imagine_instructions_will_have_the_effect_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Imagine_instructions_will_have_the_effect_of"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12,Imagine_instructions_will_have_the_effect_of'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23235383c0>
+state <grpc._channel._RPCState object at 0x7f2323525cf0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Imagine_instructions_will_have_the_effect_of and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Imagine_instructions_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12,Imagine_instructions_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354ff40>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Imagine_instructions_will_have_the_effect_of in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Imagine_instructions_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12,Imagine_instructions_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038fec0>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 Relate Imagine_instructions_will_have_the_effect_of to'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Imagine_instructions_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12,Imagine_instructions_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4080>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Imagine_instructions_will_have_the_effect_of"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12,Imagine_instructions_will_have_the_effect_of\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4140>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG None
+no verssion!
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for '
+                       'Imagine_instructions_will_have_the_effect_of',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for '
+                       'Imagine_instructions_will_have_the_effect_of',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Imagine_instructions_will_have_the_effect_of"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV2Imagine_instructions_will_have_the_effect_of"
+  nodes {
+    id: "Labeller for Imagine_instructions_will_have_the_effect_of"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xab\x01\n6RakeItUpV2Imagine_instructions_will_have_the_effect_of"q\n9Labeller for Imagine_instructions_will_have_the_effect_of\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4500>
+state <grpc._channel._RPCState object at 0x7f23203a1690>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+error code: WORKFLOW_INVALID_ARGUMENT
+description: "Workflow invalid argument"
+details: "Invalid Workflow ID. \'id\' (\'RakeItUpV2Imagine_instructions_will_have_the_effect_of\') must be between 1 and 48 characters long."
+req_id: "3b18747c9ae44dadc0212b784c5fbc0e"
+
+CONCEPT Instructions_for
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Instructions_for'], 'prompt_template': "Hello, From the concept of Instructions_for, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Instructions_for', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Instructions_for', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_for"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x10Instructions_for'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354fd80>
+state <grpc._channel._RPCState object at 0x7f2320393b20>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Instructions_for and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_for"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x10Instructions_for\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f580>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Instructions_for in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_for"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x10Instructions_for\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038fec0>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 Relate Instructions_for to'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_for"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x10Instructions_for\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f2323538080>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG None
+no verssion!
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Instructions_for',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Instructions_for',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Instructions_for"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV2Instructions_for"
+  nodes {
+    id: "Labeller for Instructions_for"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12s\n\x1aRakeItUpV2Instructions_for"U\n\x1dLabeller for Instructions_for\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4200>
+state <grpc._channel._RPCState object at 0x7f23203a1660>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+error code: DATABASE_DUPLICATE_KEY
+description: "Object has a duplicate ID; another object with same ID already exists."
+details: "Object has a duplicate ID; another object with same ID already exists."
+req_id: "4c269afa52dec2d4f068ad3450e0f044"
+
+CONCEPT Instructions_about
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Instructions_about'], 'prompt_template': "Hello, From the concept of Instructions_about, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Instructions_about', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Instructions_about', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038f880>
+state <grpc._channel._RPCState object at 0x7f2323525f90>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Instructions_about and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038fa40>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 2
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x02 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b5940>
+state <grpc._channel._RPCState object at 0x7f23203a15a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 The concept of Instructions_about in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203ce180>
+state <grpc._channel._RPCState object at 0x7f23203d9060>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 2
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x02 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203ceec0>
+state <grpc._channel._RPCState object at 0x7f23203d9060>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG TEXT 1 Relate Instructions_about to'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 1
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x01 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b7dc0>
+state <grpc._channel._RPCState object at 0x7f23203d8d60>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Instructions_about"
+page: 2
+per_page: 16
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x12Instructions_about\x18\x02 \x10'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b7340>
+state <grpc._channel._RPCState object at 0x7f23203d8d60>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+DEBUG ['Instructions_about', '7b17e11207a94c6baf6156ab9837d672']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Instructions_about'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Instructions_about, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "Instructions_about"
+model_version {
+  id: "7b17e11207a94c6baf6156ab9837d672"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "Instructions_about"
+  model_version {
+    id: "7b17e11207a94c6baf6156ab9837d672"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Instructions_about',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Instructions_about',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Instructions_about"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV2Instructions_about"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "Instructions_about"
+      model_version {
+        id: "7b17e11207a94c6baf6156ab9837d672"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Instructions_about"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xd3\x01\n\x1cRakeItUpV2Instructions_about"I\n\rPrompter Node\x128\n\x12Instructions_about2"\n 7b17e11207a94c6baf6156ab9837d672"h\n\x1fLabeller for Instructions_about\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232354cf00>
+state <grpc._channel._RPCState object at 0x7f23203f3f40>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:06:21 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "b6d9928640a081d8a24d2d0606c66386"                                                   
+                                                                                                                          
+CONCEPT Structure_of
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Structure_of'], 'prompt_template': "Hello, From the concept of Structure_of, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Structure_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Structure_of', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Structure_of"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x0cStructure_of'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4d00>
+state <grpc._channel._RPCState object at 0x7f23203a1270>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'Structure_of\' does not exist."
+req_id: "3c2b6675c84ec7501a1a4790f85bb056"
+
+DEBUG TEXT 1 The concept of Structure_of and its relationship to the concepts contained in'''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "Structure_of"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a\x18\n\x0cStructure_ofr\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038c5c0>
+state <grpc._channel._RPCState object at 0x7f2320400b20>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "Structure_of"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Structure_of and its relationship to the concepts contained in\'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x0cStructure_of\x1a\x98\x01\x9a\x01\x94\x01:\x91\x01\nw\n\x0fprompt_template\x12d\x1abThe concept of Structure_of and its relationship to the concepts contained in'''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f232038c580>
+state <grpc._channel._RPCState object at 0x7f2320400b20>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "Structure_of"
+name: "Structure_of"
+created_at {
+  seconds: 1694545581
+  nanos: 721417000
+}
+modified_at {
+  seconds: 1694545581
+  nanos: 721417000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "ba5b7ddd578042f68653000c5e39d705"
+  created_at {
+    seconds: 1694545581
+    nanos: 774692906
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Structure_of and its relationship to the concepts contained in\'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG TEXT 1 The concept of Structure_of in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "Structure_of"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a\x18\n\x0cStructure_ofr\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f23203b4500>
+state <grpc._channel._RPCState object at 0x7f2323526350>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+CODE 21202
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/src/int │
+│ rospector/clarify/model/rake.py:202 in <module>                                                  │
+│                                                                                                  │
+│   199 │   rake_it_up_context = RakeItUpContext()                                                 │
+│   200 │                                                                                          │
+│   201 │   # Execute the RakeItUp workflow                                                        │
+│ ❱ 202 │   rake_it_up_context.generate_and_execute_workflow()                                     │
+│   203                                                                                            │
+│                                                                                                  │
+│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/src/int │
+│ rospector/clarify/model/rake.py:112 in generate_and_execute_workflow                             │
+│                                                                                                  │
+│   109 │   │   │   │   │   │   │   │   │   auth = self.get_auth_helper()                          │
+│   110 │   │   │   │   │   │   │   │   │   model_api = Models(auth)                               │
+│   111 │   │   │   │   │   │   │   │   │                                                          │
+│ ❱ 112 │   │   │   │   │   │   │   │   │   resp = model_api.create_prompt_model(                  │
+│   113 │   │   │   │   │   │   │   │   │   │                                                      │
+│   114 │   │   │   │   │   │   │   │   │   │   app_id=self.app_id,                                │
+│   115 │   │   │   │   │   │   │   │   │   │   user_id=self.user_id,                              │
+│                                                                                                  │
+│ /mnt/data1/2023/08/25/https-lablab.ai-event-llama-2-hackathon-with-clarifai-introspector/vendor/ │
+│ clarifai/clarifai/models/api.py:196 in create_prompt_model                                       │
+│                                                                                                  │
+│   193 │     ))                                                                                   │
+│   194 │   if response.status.code != 10000:                                                      │
+│   195 │     print(f"CODE {response.status.code}")                                                │
+│ ❱ 196 │     raise Exception("PostModels request failed: %r" % response)                          │
+│   197 │                                                                                          │
+│   198 │   req = service_pb2.PostModelVersionsRequest(                                            │
+│   199                                                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Exception: PostModels request failed: status {
+  code: MODEL_INVALID_ARGUMENT
+  description: "Invalid model argument"
+  details: "Model already exists with ID \'Structure_of\'"
+  req_id: "7faca9ebf8a922568048b6f802a600be"
+}
 

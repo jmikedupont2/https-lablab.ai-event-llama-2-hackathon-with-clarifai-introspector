@@ -38,7 +38,7 @@ if stream_inputs_response.status.code != status_code_pb2.SUCCESS:
     raise Exception("Stream inputs failed, status: " + stream_inputs_response.status.description)
 
 def write_input(input_object):
-    fn = "outputs/"+input_object.id
+    fn = split(input_object.id)
     overwrite = 0
     if not os.path.exists(fn):
         overwrite = 1
@@ -50,7 +50,6 @@ def write_input(input_object):
         #pdb.set_trace()
         data2 =  requests.get(input_object.data.text.url)
 
-
         st1 = str(input_object)
         if len (st1) >0:
             with open(fn,"w") as of:               
@@ -58,7 +57,18 @@ def write_input(input_object):
                 of.write("PAYLOAD:"+data2.text)
                 return
             
-
+def split(filename):
+    N = 3  # Replace this with the number of characters you want to split by
+    file_prefix = filename[:N]
+    file_suffix = filename[N:]
+    directory_path = "outputs"
+    directory_parts = directory_path.split(file_prefix, 1)
+    new_directory = os.path.join(directory_parts[0], file_prefix)
+    if not os.path.exists(new_directory):
+        os.makedirs(new_directory)
+    new_file_path = os.path.join(new_directory, file_suffix)
+    return new_file_path
+        
 @limits(calls=5, period=1)
 def get_input(input_id):
     get_input_response = stub.GetInput(
