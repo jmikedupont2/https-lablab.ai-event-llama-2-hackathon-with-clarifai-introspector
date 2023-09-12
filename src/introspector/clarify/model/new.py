@@ -4,6 +4,25 @@ import json
 import os.path
 import pprint
 from clarifai_grpc.grpc.api import resources_pb2
+import logging
+
+# These two lines enable debugging at httplib level (requests->urllib3->http.client)
+# You will see the REQUEST, including HEADERS and DATA, and RESPONSE with HEADERS but without DATA.
+# The only thing missing will be the response.body which is not logged.
+try:
+    import http.client as http_client
+except ImportError:
+    # Python 2
+    import httplib as http_client
+http_client.HTTPConnection.debuglevel = 1
+
+# You must initialize logging, otherwise you'll not see debug output.
+logging.basicConfig()
+logging.getLogger().setLevel(logging.DEBUG)
+requests_log = logging.getLogger("requests.packages.urllib3")
+requests_log.setLevel(logging.DEBUG)
+requests_log.propagate = True
+
 
 chunk_size = 10
 # clarifai/datasets/upload/base.py
@@ -33,6 +52,7 @@ class Common:
         inputs = self.load_data()
         if inputs:
             print(len(inputs))
+
             self.dataset.input_object._bulk_upload(inputs=inputs, chunk_size=chunk_size)
 
 
@@ -54,6 +74,13 @@ class Users(Common):
 
 class Asts(Common):
     pass
+
+
+
+class GenericIdea(Common):
+    def __init__(self, name):
+        self.name = name
+        super().__init__()
 
 
 # must be set as env vars
@@ -94,6 +121,9 @@ class Globals(Common):
         for objectn in globals():
             value = globals()[objectn]
             fstr = redact(str(value))
+
+            object_id = lookup_id(fstr)
+                            
             labels = [objectn, str(type(value))]
             labels.extend(dir(value))
             labels.extend(dir(type(value)))
@@ -103,19 +133,119 @@ class Globals(Common):
                 data=data,
                 # labels=labels,
                 # id=str(id(value))
+                #lookup_id(fstr)
             )
             dataset.append(input_proto)
         return dataset
 
 
 models = {
-    "User": Users(),
-    "App": Apps(),
-    "DataSet": DataSets(),
-    "PythonGlobals": Globals(),
-    "PythonTypes": Types(),
-    "PythonAsts": Asts(),
+#    "User": Users(),
+#    "App": Apps(),
+#    "DataSet": DataSets(),
+#    "PythonGlobals": Globals(),
+#    "PythonTypes": Types(),
+#    "PythonAsts": Asts(),
 }
+
+for name in [
+        "Biomes",
+        "Environments",
+        "Surroundings",
+        "Contexts",
+        "RecursiveAcronyms",
+        "Acronyms",
+        "AcronymInterpreters",
+        "AcronymRules",
+        "FormalSystems",
+        "RewriteSystems",
+        "PyTorchModels",
+        "TensorFlow",
+        "Tensors",
+        "Vectors",
+        "AttentionModels",
+        "SelfLearning",
+        "SelfImprovement",
+        "Regression",
+        "AutoML",
+        "DeepLearning",
+        "DeepGraphLearning",
+        "ReenforcementLearning",
+        "DeepGraphSemanticModels",
+        "SemanticWeb",
+        "LinkedData",
+        "RDF",
+        "OWL",
+        "ONNXModels",
+        "BotGymsModels",
+        "BotArenaModels",
+        "Prompts",
+        "PromptModels",
+        "PromptModelVersions",
+        "Personas",
+        "Tasks",
+        "Issues",
+        "PullRequests",
+        "Discussions",
+        "Chats",
+        "Conversations",
+        "Projects",
+        "Epics",
+        "ChangeRequests",
+        "InfrastructureChanges",
+        "Infrastructure",
+        "Concepts",
+        "Workflows",
+        "WebPlatforms",
+        "Ontologies",
+        "Models",
+        "ModelVersions",
+        "ServiceDefinitions",
+        "Streamlit",
+        "Secrets",
+        "AWSAccounts",
+        "GithubOrgs",
+        "GithubDiscussions",
+        "GithubWiki",
+        "Wikipedia",
+        "MediaWikis",
+        "PhpProjects",
+        "PythonProjects",
+        "CPlusPlusProjects",
+        "CLanguageProjects",
+        "CompilerProjects",
+        "LanguageProjects",
+        "CoqProjects",
+        "ProofEngineProjects",
+        "GithubRepos",
+        "Hackathons",
+        "AGISystems",
+        "ChatBots",
+        "ChatPlatforms",
+        "PredictionSystems",
+        "LabelingSystems",
+        "WorkflowSystems",
+        "WorkSystems",
+        "Computerystems",
+        "MetaPrograms",
+        "MetaMemes",
+        "Memes",
+        "MetaQuines",
+        "Quines",
+        "DiceGames",
+        "Athena",
+        "Zeus",
+        "Calliope" ,
+        "Clio" ,
+        "Euterpe",
+        "Thalia"
+        "Melpomene",
+        "Terpsichore",
+        "Erato",
+        "Polyhymnia",
+]:
+    models[name]=GenericIdea(name)
+
 dataset_index = {}
 for app in apps:
     datasets = app.list_datasets()

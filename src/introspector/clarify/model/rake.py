@@ -6,6 +6,7 @@ from clarifai_grpc.grpc.api.resources_pb2 import (
     Model,
     ModelVersion,
 )
+
 import versions
 import pprint
 from clarifai.models.api import Models
@@ -60,10 +61,10 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                             except Exception as e:
                                 print(e)
 
-                            if aprompt_model is not None:
-                                self.app.delete_model(model_id=model_id)
-                                aprompt_model = None
-
+                            #if aprompt_model is not None:
+                                #self.app.delete_model(model_id=model_id)
+                                #aprompt_model = None
+                            latest_version = None
                             if aprompt_model is None:
                                 auth = self.get_auth_helper()
                                 model_api = Models(auth)
@@ -75,15 +76,27 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                                     position="TEMPLATE",
                                 )
                                 latest_version = [resp.id, resp.model_version.id]
-                                # pprint.pprint(resp)
+                                pprint.pprint(resp)
+                            else:
+                                latest_versions = aprompt_model.list_versions()
+                                if latest_versions:
+                                    resp = list(latest_versions)[0]
+                                    latest_version = [resp.id, resp.model_version.id]
+                                    
                         else:
+                            print("getlatest2")
+
+                            # called for the t2t model
                             latest_versions = model_version_lookup.get_latest_version(
                                 model_id
                             )
                             if latest_versions:
                                 latest_version = list(latest_versions.items())[0]
+                                print("DEBUG111",latest_version)
+                            else:
+                                raise Exception(latest_version)
+                        print("DEBUG",latest_version)
                         version_id = latest_version[1]
-                        # print("LATEST VERSION",latest_version,version_id)
                         model = Model(
                             id=latest_version[0],
                             model_version=ModelVersion(
@@ -109,15 +122,18 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                         pprint.pprint({"DEBUG_NODE OUT": [i, node2]})
                         workflow_nodes.append(node2)
 
-            pprint.pprint({"WORKFLOW": workflow_nodes})
-            created_workflow = self.app.delete_workflow(
-                workflow_id="RakeItUpV1" + concept
-            )
-            created_workflow = self.app.create_workflow(
-                workflow_id="RakeItUpV1" + concept, nodes=workflow_nodes
-            )
-            return created_workflow
-
+            #pprint.pprint({"WORKFLOW": workflow_nodes})
+            #created_workflow = self.app.delete_workflow(
+            #    workflow_id="RakeItUpV1" + concept
+            #)
+            try:
+                created_workflow = self.app.create_workflow(
+                    workflow_id="RakeItUpV2" + concept, nodes=workflow_nodes
+                )
+                #return created_workflow
+            except Exception as e:
+                print("error",e)
+                #return None
     def get_dataset_names_with_prefix(self, prefix="cf_dataset_"):
         # cf_dataset_
         dataset_names = {}

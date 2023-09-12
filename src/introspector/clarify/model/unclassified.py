@@ -5,7 +5,7 @@ import requests
 from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
 from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
 from clarifai_grpc.grpc.api.status import status_code_pb2
-
+from ratelimit import limits, RateLimitException
 import simple
 
 # Your PAT (Personal Access Token) can be found in the portal under Authentification
@@ -73,25 +73,116 @@ for input_object in stream_inputs_response.inputs:
     data_url = input_object.data.text.url
     #print(x.text)
     for workflow in [
-            "RakeItUpV1user",
-            "RakeItUpV1app",
-            "RakeItUpV1dataset",
-            "RakeItUpV1pythontypes",
-            "RakeItUpV1pythonasts",
-            "RakeItUpV1pythonglobals",
+            "RakeItUpV2user",
+            "RakeItUpV2app",
+            "RakeItUpV2dataset",
+            "RakeItUpV2pythontypes",
+            "RakeItUpV2pythonasts",
+            "RakeItUpV2pythonglobals",
+            "RakeItUpV2python_globals",
+            "RakeItUpV2gitdumpdirectory",
+            "RakeItUpV2readgron",
+            "RakeItUpV2biomes",
+            "RakeItUpV2environments",
+            "RakeItUpV2surroundings",
+            "RakeItUpV2contexts",
+            "RakeItUpV2recursiveacronyms",
+            "RakeItUpV2acronyms",
+            "RakeItUpV2acronyminterpreters",
+            "RakeItUpV2acronymrules",
+            "RakeItUpV2formalsystems",
+            "RakeItUpV2rewritesystems",
+            "RakeItUpV2pytorchmodels",
+            "RakeItUpV2tensorflow",
+            "RakeItUpV2tensors",
+            "RakeItUpV2vectors",
+            "RakeItUpV2attentionmodels",
+            "RakeItUpV2selflearning",
+            "RakeItUpV2selfimprovement",
+            "RakeItUpV2regression",
+            "RakeItUpV2automl",
+            "RakeItUpV2deeplearning",
+            "RakeItUpV2deepgraphlearning",
+            "RakeItUpV2reenforcementlearning",
+            "RakeItUpV2deepgraphsemanticmodels",
+            "RakeItUpV2semanticweb",
+            "RakeItUpV2linkeddata",
+            "RakeItUpV2rdf",
+            "RakeItUpV2owl",
+            "RakeItUpV2onnxmodels",
+            "RakeItUpV2botgymsmodels",
+            "RakeItUpV2botarenamodels",
+            "RakeItUpV2prompts",
+            "RakeItUpV2promptmodels",
+            "RakeItUpV2promptmodelversions",
+            "RakeItUpV2personas",
+            "RakeItUpV2tasks",
+            "RakeItUpV2issues",
+            "RakeItUpV2pullrequests",
+            "RakeItUpV2discussions",
+            "RakeItUpV2chats",
+            "RakeItUpV2conversations",
+            "RakeItUpV2projects",
+            "RakeItUpV2epics",
+            "RakeItUpV2changerequests",
+            "RakeItUpV2infrastructurechanges",
+            "RakeItUpV2infrastructure",
+            "RakeItUpV2concepts",
+            "RakeItUpV2workflows",
+            "RakeItUpV2webplatforms",
+            "RakeItUpV2ontologies",
+            "RakeItUpV2models",
+            "RakeItUpV2modelversions",
+            "RakeItUpV2servicedefinitions",
+            "RakeItUpV2streamlit",
+            "RakeItUpV2secrets",
+            "RakeItUpV2awsaccounts",
+            "RakeItUpV2githuborgs",
+            "RakeItUpV2githubdiscussions",
+            "RakeItUpV2githubwiki",
+            "RakeItUpV2wikipedia",
+            "RakeItUpV2mediawikis",
+            "RakeItUpV2phpprojects",
+            "RakeItUpV2pythonprojects",
+            "RakeItUpV2cplusplusprojects",
+            "RakeItUpV2clanguageprojects",
+            "RakeItUpV2compilerprojects",
+            "RakeItUpV2languageprojects",
+            "RakeItUpV2coqprojects",
+            "RakeItUpV2proofengineprojects",
+            "RakeItUpV2githubrepos",
+            "RakeItUpV2hackathons",
+            "RakeItUpV2agisystems",
+            "RakeItUpV2chatbots",
+            "RakeItUpV2chatplatforms",
+            "RakeItUpV2predictionsystems",
+            "RakeItUpV2labelingsystems",
+            "RakeItUpV2workflowsystems",
+            "RakeItUpV2worksystems",
+            "RakeItUpV2computerystems",
+            "RakeItUpV2metaprograms",
+            "RakeItUpV2metamemes",
+            "RakeItUpV2memes",
+            "RakeItUpV2metaquines",
+            "RakeItUpV2quines",
+            "RakeItUpV2dicegames",
+            "RakeItUpV2athena",
+            "RakeItUpV2zeus",
+            "RakeItUpV2calliope",
+            "RakeItUpV2clio",
+            "RakeItUpV2euterpe",
+            "RakeItUpV2thaliamelpomene",
+            "RakeItUpV2terpsichore",
+            "RakeItUpV2erato",
+            "RakeItUpV2polyhymnia",
+            #""RakeItUpV1app",
+            #"RakeItUpV1dataset",
+            #"RakeItUpV1pythontypes",
+            #"RakeItUpV1pythonasts",
+            #"RakeItUpV1pythonglobals",
     ]:
-        call_api.call_workflow(stub, metadata, userDataObject, workflow, data_url)
-#unclassified_inputs = app.inputs.get_all(unclassified=True)
-
-# Print the IDs of the unclassified inputs
-#for input_data in unclassified_inputs:
-#    print("Input ID:", input_data.id)
-
-
-
-#INPUT_ID = 'eec128fd81974543bafff48702edca4d'
-
-##########################################################################
-# YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
-##########################################################################
+        try:
+            call_api.call_workflow(stub, metadata, userDataObject, workflow, data_url)
+        except Exception as e:
+            print(e)
 
