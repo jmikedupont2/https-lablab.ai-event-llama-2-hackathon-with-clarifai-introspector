@@ -18773,3 +18773,1787 @@ state.code.value (0, 'ok')
                              description: "Ok"                                                                            
                              req_id: "fd5e4d157e1ee333bcc11cfc8d6e693b"                                                   
                                                                                                                           
+CONCEPT Write_missing_todos3
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Write_missing_todos3'], 'prompt_template': "Hello, From the concept of Write_missing_todos3, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Write_missing_todos3', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Write_missing_todos3', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Write_missing_todos3"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Write_missing_todos3'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec38e380>
+state <grpc._channel._RPCState object at 0x7f87ec3d6fb0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Write_missing_todos3\' does not exist."
+req_id: "f39c987538668227c33565ed4e81037b"
+
+DEBUG TEXT 1 The concept of Write missing todos and Write_missing_todos in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Write_missing_todos3"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Write_missing_todos3r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39bcc0>
+state <grpc._channel._RPCState object at 0x7f87eec9b550>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Write_missing_todos3"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Write missing todos and Write_missing_todos in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Write_missing_todos3\x1a\x89\x01\x9a\x01\x85\x01:\x82\x01\nh\n\x0fprompt_template\x12U\x1aSThe concept of Write missing todos and Write_missing_todos in '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec398980>
+state <grpc._channel._RPCState object at 0x7f87eec9b550>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Write_missing_todos3"
+name: "p3Write_missing_todos3"
+created_at {
+  seconds: 1694548760
+  nanos: 947892000
+}
+modified_at {
+  seconds: 1694548760
+  nanos: 947892000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "3977bd3a04b8456fb2b4d1af9688b705"
+  created_at {
+    seconds: 1694548761
+    nanos: 67236033
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Write missing todos and Write_missing_todos in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Write_missing_todos3', '3977bd3a04b8456fb2b4d1af9688b705']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Write_missing_todos3'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Write_missing_todos3, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Write_missing_todos3"
+model_version {
+  id: "3977bd3a04b8456fb2b4d1af9688b705"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Write_missing_todos3"
+  model_version {
+    id: "3977bd3a04b8456fb2b4d1af9688b705"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Write_missing_todos3',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Write_missing_todos3',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Write_missing_todos3"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Write_missing_todos3"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Write_missing_todos3"
+      model_version {
+        id: "3977bd3a04b8456fb2b4d1af9688b705"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Write_missing_todos3"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Write_missing_todos3"M\n\rPrompter Node\x12<\n\x16p3Write_missing_todos32"\n 3977bd3a04b8456fb2b4d1af9688b705"j\n!Labeller for Write_missing_todos3\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39b980>
+state <grpc._channel._RPCState object at 0x7f87eec99c60>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:22 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "5c26e771e86b39fee2628fd7759dc66b"                                                   
+                                                                                                                          
+CONCEPT Write_missing_todos4
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Write_missing_todos4'], 'prompt_template': "Hello, From the concept of Write_missing_todos4, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Write_missing_todos4', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Write_missing_todos4', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Write_missing_todos4"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Write_missing_todos4'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87eec50740>
+state <grpc._channel._RPCState object at 0x7f87ec558940>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Write_missing_todos4\' does not exist."
+req_id: "058db48a6a9d3a6dba640c08704a1978"
+
+DEBUG TEXT 1 Relate Write missing todos to '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Write_missing_todos4"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Write_missing_todos4r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3936c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a050>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Write_missing_todos4"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "Relate Write missing todos to \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Write_missing_todos4\x1ag\x9a\x01d:b\nH\n\x0fprompt_template\x125\x1a3Relate Write missing todos to '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3913c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a050>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Write_missing_todos4"
+name: "p3Write_missing_todos4"
+created_at {
+  seconds: 1694548762
+  nanos: 754511000
+}
+modified_at {
+  seconds: 1694548762
+  nanos: 754511000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "b0fd3c0c32224808807329508f15320a"
+  created_at {
+    seconds: 1694548762
+    nanos: 906673699
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "Relate Write missing todos to \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Write_missing_todos4', 'b0fd3c0c32224808807329508f15320a']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Write_missing_todos4'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Write_missing_todos4, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Write_missing_todos4"
+model_version {
+  id: "b0fd3c0c32224808807329508f15320a"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Write_missing_todos4"
+  model_version {
+    id: "b0fd3c0c32224808807329508f15320a"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Write_missing_todos4',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Write_missing_todos4',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Write_missing_todos4"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Write_missing_todos4"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Write_missing_todos4"
+      model_version {
+        id: "b0fd3c0c32224808807329508f15320a"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Write_missing_todos4"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Write_missing_todos4"M\n\rPrompter Node\x12<\n\x16p3Write_missing_todos42"\n b0fd3c0c32224808807329508f15320a"j\n!Labeller for Write_missing_todos4\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec392480>
+state <grpc._channel._RPCState object at 0x7f87eec9a050>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:25 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "62d1634c29bb79a037a75c7b07880799"                                                   
+                                                                                                                          
+CONCEPT Flag_missing_issues0
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Flag_missing_issues0'], 'prompt_template': "Hello, From the concept of Flag_missing_issues0, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Flag_missing_issues0', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Flag_missing_issues0', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues0"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues0'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40cb40>
+state <grpc._channel._RPCState object at 0x7f87ec3ae020>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Flag_missing_issues0\' does not exist."
+req_id: "0abe509fb598f38f2a7f543f41a0e768"
+
+DEBUG TEXT 1 The concept of Flag missing issues and its relationship to the concepts contained in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Flag_missing_issues0"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Flag_missing_issues0r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39a9c0>
+state <grpc._channel._RPCState object at 0x7f87ec41e4a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues0"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues and its relationship to the concepts contained in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues0\x1a\xa0\x01\x9a\x01\x9c\x01:\x99\x01\n\x7f\n\x0fprompt_template\x12l\x1ajThe concept of Flag missing issues and its relationship to the concepts contained in '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec399280>
+state <grpc._channel._RPCState object at 0x7f87ec41e4a0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Flag_missing_issues0"
+name: "p3Flag_missing_issues0"
+created_at {
+  seconds: 1694548765
+  nanos: 872924000
+}
+modified_at {
+  seconds: 1694548765
+  nanos: 872924000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "e85f1f1c727241d5947e91340c1b20b2"
+  created_at {
+    seconds: 1694548766
+    nanos: 51516914
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues and its relationship to the concepts contained in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Flag_missing_issues0', 'e85f1f1c727241d5947e91340c1b20b2']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Flag_missing_issues0'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Flag_missing_issues0, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Flag_missing_issues0"
+model_version {
+  id: "e85f1f1c727241d5947e91340c1b20b2"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Flag_missing_issues0"
+  model_version {
+    id: "e85f1f1c727241d5947e91340c1b20b2"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Flag_missing_issues0',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Flag_missing_issues0',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Flag_missing_issues0"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Flag_missing_issues0"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Flag_missing_issues0"
+      model_version {
+        id: "e85f1f1c727241d5947e91340c1b20b2"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Flag_missing_issues0"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Flag_missing_issues0"M\n\rPrompter Node\x12<\n\x16p3Flag_missing_issues02"\n e85f1f1c727241d5947e91340c1b20b2"j\n!Labeller for Flag_missing_issues0\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec57c540>
+state <grpc._channel._RPCState object at 0x7f87ec41d7b0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:29 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "58a4d2996bfe4b65e9a0e022a2fe12e0"                                                   
+                                                                                                                          
+CONCEPT Flag_missing_issues1
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Flag_missing_issues1'], 'prompt_template': "Hello, From the concept of Flag_missing_issues1, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Flag_missing_issues1', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Flag_missing_issues1', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues1"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues1'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40f2c0>
+state <grpc._channel._RPCState object at 0x7f87ec3d7940>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Flag_missing_issues1\' does not exist."
+req_id: "99df8f32f94a508f78ac385247d085d6"
+
+DEBUG TEXT 1 The concept of Flag missing issues in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Flag_missing_issues1"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Flag_missing_issues1r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39b580>
+state <grpc._channel._RPCState object at 0x7f87eec9b8e0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues1"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues1\x1ao\x9a\x01l:j\nP\n\x0fprompt_template\x12=\x1a;The concept of Flag missing issues in '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3983c0>
+state <grpc._channel._RPCState object at 0x7f87eec9b8e0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Flag_missing_issues1"
+name: "p3Flag_missing_issues1"
+created_at {
+  seconds: 1694548770
+  nanos: 11949000
+}
+modified_at {
+  seconds: 1694548770
+  nanos: 11949000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "608ff1ad74fe4c2dbee3e9df44378c39"
+  created_at {
+    seconds: 1694548770
+    nanos: 127226533
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Flag_missing_issues1', '608ff1ad74fe4c2dbee3e9df44378c39']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Flag_missing_issues1'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Flag_missing_issues1, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Flag_missing_issues1"
+model_version {
+  id: "608ff1ad74fe4c2dbee3e9df44378c39"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Flag_missing_issues1"
+  model_version {
+    id: "608ff1ad74fe4c2dbee3e9df44378c39"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Flag_missing_issues1',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Flag_missing_issues1',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Flag_missing_issues1"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Flag_missing_issues1"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Flag_missing_issues1"
+      model_version {
+        id: "608ff1ad74fe4c2dbee3e9df44378c39"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Flag_missing_issues1"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Flag_missing_issues1"M\n\rPrompter Node\x12<\n\x16p3Flag_missing_issues12"\n 608ff1ad74fe4c2dbee3e9df44378c39"j\n!Labeller for Flag_missing_issues1\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39b340>
+state <grpc._channel._RPCState object at 0x7f87eec9b8e0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:31 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "df87b3add70242469de9eecb2a925f26"                                                   
+                                                                                                                          
+CONCEPT Flag_missing_issues2
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Flag_missing_issues2'], 'prompt_template': "Hello, From the concept of Flag_missing_issues2, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Flag_missing_issues2', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Flag_missing_issues2', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues2"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues2'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40d480>
+state <grpc._channel._RPCState object at 0x7f87ec558ca0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Flag_missing_issues2\' does not exist."
+req_id: "27bc123374bae326914bda0db11953c7"
+
+DEBUG TEXT 1 The concept of Flag missing issues in consideration of the special case of Flag_missing_issues in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Flag_missing_issues2"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Flag_missing_issues2r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87eebe0380>
+state <grpc._channel._RPCState object at 0x7f87ec41c220>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues2"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues in consideration of the special case of Flag_missing_issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues2\x1a\xae\x01\x9a\x01\xaa\x01:\xa7\x01\n\x8c\x01\n\x0fprompt_template\x12y\x1awThe concept of Flag missing issues in consideration of the special case of Flag_missing_issues in '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3f0d00>
+state <grpc._channel._RPCState object at 0x7f87ec41c220>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Flag_missing_issues2"
+name: "p3Flag_missing_issues2"
+created_at {
+  seconds: 1694548771
+  nanos: 988659000
+}
+modified_at {
+  seconds: 1694548771
+  nanos: 988659000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "2591af82ccd8440c8cb497e920e52c39"
+  created_at {
+    seconds: 1694548772
+    nanos: 139449117
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues in consideration of the special case of Flag_missing_issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Flag_missing_issues2', '2591af82ccd8440c8cb497e920e52c39']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Flag_missing_issues2'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Flag_missing_issues2, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Flag_missing_issues2"
+model_version {
+  id: "2591af82ccd8440c8cb497e920e52c39"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Flag_missing_issues2"
+  model_version {
+    id: "2591af82ccd8440c8cb497e920e52c39"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Flag_missing_issues2',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Flag_missing_issues2',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Flag_missing_issues2"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Flag_missing_issues2"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Flag_missing_issues2"
+      model_version {
+        id: "2591af82ccd8440c8cb497e920e52c39"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Flag_missing_issues2"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Flag_missing_issues2"M\n\rPrompter Node\x12<\n\x16p3Flag_missing_issues22"\n 2591af82ccd8440c8cb497e920e52c39"j\n!Labeller for Flag_missing_issues2\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec391880>
+state <grpc._channel._RPCState object at 0x7f87ec41fca0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:34 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "2a82aa98e2a9451dd2efc39b10b2998b"                                                   
+                                                                                                                          
+CONCEPT Flag_missing_issues3
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Flag_missing_issues3'], 'prompt_template': "Hello, From the concept of Flag_missing_issues3, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Flag_missing_issues3', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Flag_missing_issues3', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues3"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues3'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40da80>
+state <grpc._channel._RPCState object at 0x7f87ec3ade70>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Flag_missing_issues3\' does not exist."
+req_id: "c5131de7962058f55f7939f1aa775872"
+
+DEBUG TEXT 1 The concept of Flag missing issues and Flag_missing_issues in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Flag_missing_issues3"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Flag_missing_issues3r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39a880>
+state <grpc._channel._RPCState object at 0x7f87eec9a1d0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues3"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues and Flag_missing_issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues3\x1a\x89\x01\x9a\x01\x85\x01:\x82\x01\nh\n\x0fprompt_template\x12U\x1aSThe concept of Flag missing issues and Flag_missing_issues in '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39b2c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a1d0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Flag_missing_issues3"
+name: "p3Flag_missing_issues3"
+created_at {
+  seconds: 1694548774
+  nanos: 786008000
+}
+modified_at {
+  seconds: 1694548774
+  nanos: 786008000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "6d0eb05fe04a4930b7b5d6855fc73e47"
+  created_at {
+    seconds: 1694548774
+    nanos: 863420300
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Flag missing issues and Flag_missing_issues in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Flag_missing_issues3', '6d0eb05fe04a4930b7b5d6855fc73e47']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Flag_missing_issues3'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Flag_missing_issues3, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Flag_missing_issues3"
+model_version {
+  id: "6d0eb05fe04a4930b7b5d6855fc73e47"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Flag_missing_issues3"
+  model_version {
+    id: "6d0eb05fe04a4930b7b5d6855fc73e47"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Flag_missing_issues3',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Flag_missing_issues3',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Flag_missing_issues3"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Flag_missing_issues3"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Flag_missing_issues3"
+      model_version {
+        id: "6d0eb05fe04a4930b7b5d6855fc73e47"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Flag_missing_issues3"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Flag_missing_issues3"M\n\rPrompter Node\x12<\n\x16p3Flag_missing_issues32"\n 6d0eb05fe04a4930b7b5d6855fc73e47"j\n!Labeller for Flag_missing_issues3\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3d1140>
+state <grpc._channel._RPCState object at 0x7f87eec9a1d0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:35 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "54314b1a1f2c3d2109f580da20f0872a"                                                   
+                                                                                                                          
+CONCEPT Flag_missing_issues4
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Flag_missing_issues4'], 'prompt_template': "Hello, From the concept of Flag_missing_issues4, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Flag_missing_issues4', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Flag_missing_issues4', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues4"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues4'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40fc40>
+state <grpc._channel._RPCState object at 0x7f87ec3d7ee0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Flag_missing_issues4\' does not exist."
+req_id: "1ab3ffa822d46c144ba3515170fd9e8b"
+
+DEBUG TEXT 1 Relate Flag missing issues to '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Flag_missing_issues4"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a"\n\x16p3Flag_missing_issues4r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec398780>
+state <grpc._channel._RPCState object at 0x7f87eec9b7c0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Flag_missing_issues4"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "Relate Flag missing issues to \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b"\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\x16p3Flag_missing_issues4\x1ag\x9a\x01d:b\nH\n\x0fprompt_template\x125\x1a3Relate Flag missing issues to '''{data.text.raw}'''\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE"
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec39b6c0>
+state <grpc._channel._RPCState object at 0x7f87eec9b7c0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Flag_missing_issues4"
+name: "p3Flag_missing_issues4"
+created_at {
+  seconds: 1694548775
+  nanos: 655880000
+}
+modified_at {
+  seconds: 1694548775
+  nanos: 655880000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "13da85bef4c8452883a905857a2424a2"
+  created_at {
+    seconds: 1694548775
+    nanos: 749282875
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "Relate Flag missing issues to \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Flag_missing_issues4', '13da85bef4c8452883a905857a2424a2']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Flag_missing_issues4'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Flag_missing_issues4, please evalute how '
+                                    'the following statement relates to that '
+                                    "concept :'''{data.text.raw}'''. Your "
+                                    'response:'},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Flag_missing_issues4"
+model_version {
+  id: "13da85bef4c8452883a905857a2424a2"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Flag_missing_issues4"
+  model_version {
+    id: "13da85bef4c8452883a905857a2424a2"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Flag_missing_issues4',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Flag_missing_issues4',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Flag_missing_issues4"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Flag_missing_issues4"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Flag_missing_issues4"
+      model_version {
+        id: "13da85bef4c8452883a905857a2424a2"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Flag_missing_issues4"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xdb\x01\n\x1eRakeItUpV3Flag_missing_issues4"M\n\rPrompter Node\x12<\n\x16p3Flag_missing_issues42"\n 13da85bef4c8452883a905857a2424a2"j\n!Labeller for Flag_missing_issues4\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3f2200>
+state <grpc._channel._RPCState object at 0x7f87eec9b8e0>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:39 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "408cff245caf51665467ce9f284b8c22"                                                   
+                                                                                                                          
+CONCEPT Warn_user_about_issues_found_in0
+workflow_definition {'nodes': [{'id': 'Prompter Node', 'model': {'id': 'dynamic-prompter'}, 'inputs': ['Input Task for Warn_user_about_issues_found_in0'], 'prompt_template': "Hello, From the concept of Warn_user_about_issues_found_in0, please evalute how the following statement relates to that concept :'''{data.text.raw}'''. Your response:"}, {'id': 'Labeller for Warn_user_about_issues_found_in0', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}], 'workflow_output': {'id': {'id': 'Labeller for Warn_user_about_issues_found_in0', 'model': {'id': 'llama2_labelling_model_id'}, 'inputs': ['Prompter Node']}}}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Warn_user_about_issues_found_in0"
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12"p3Warn_user_about_issues_found_in0'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec40fd80>
+state <grpc._channel._RPCState object at 0x7f87ec558f70>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+code: MODEL_DOES_NOT_EXIST
+description: "Model does not exist"
+details: "Model \'p3Warn_user_about_issues_found_in0\' does not exist."
+req_id: "eec096546c73c2997829e40de8a2fb4b"
+
+DEBUG TEXT 1 The concept of Warn user about issues found in and its relationship to the concepts contained in '''{data.text.raw}'''
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+models {
+  id: "p3Warn_user_about_issues_found_in0"
+  model_type_id: "prompter"
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x1a.\n"p3Warn_user_about_issues_found_in0r\x08prompter'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3d04c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a200>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+model_id: "p3Warn_user_about_issues_found_in0"
+model_versions {
+  output_info {
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Warn user about issues found in and its relationship to the concepts contained in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12"p3Warn_user_about_issues_found_in0\x1a\xad\x01\x9a\x01\xa9\x01:\xa6\x01\n\x8b\x01\n\x0fprompt_template\x12x\x1avThe concept of Warn user about issues found in and its relationship to the concepts contained in \'\'\'{data.text.raw}\'\'\'\n\x16\n\x08position\x12\n\x1a\x08TEMPLATE'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3d07c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a200>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+id: "p3Warn_user_about_issues_found_in0"
+name: "p3Warn_user_about_issues_found_in0"
+created_at {
+  seconds: 1694548779
+  nanos: 452069000
+}
+modified_at {
+  seconds: 1694548779
+  nanos: 452069000
+}
+app_id: "Introspector-LLama2-Hackathon-Demo1"
+model_version {
+  id: "e2d31ba7c631496580960757dc6a0cff"
+  created_at {
+    seconds: 1694548779
+    nanos: 579367106
+  }
+  status {
+    code: MODEL_TRAINED
+    description: "Model is trained and ready"
+  }
+  visibility {
+    gettable: PRIVATE
+  }
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+  user_id: "rxngfnlo5uhx"
+  metadata {
+  }
+  output_info {
+    output_config {
+    }
+    message: "Show output_info with: GET /models/{model_id}/output_info"
+    params {
+      fields {
+        key: "prompt_template"
+        value {
+          string_value: "The concept of Warn user about issues found in and its relationship to the concepts contained in \'\'\'{data.text.raw}\'\'\'"
+        }
+      }
+      fields {
+        key: "position"
+        value {
+          string_value: "TEMPLATE"
+        }
+      }
+    }
+  }
+  input_info {
+    params {
+    }
+  }
+  train_info {
+  }
+  import_info {
+  }
+}
+user_id: "rxngfnlo5uhx"
+model_type_id: "prompter"
+visibility {
+  gettable: PRIVATE
+}
+metadata {
+}
+presets {
+}
+workflow_recommended {
+}
+
+DEBUG ['p3Warn_user_about_issues_found_in0', 'e2d31ba7c631496580960757dc6a0cff']
+{'DEBUG_NODE': [0,
+                {'id': 'Prompter Node',
+                 'inputs': ['Input Task for Warn_user_about_issues_found_in0'],
+                 'model': {'id': 'dynamic-prompter'},
+                 'prompt_template': 'Hello, From the concept of '
+                                    'Warn_user_about_issues_found_in0, please '
+                                    'evalute how the following statement '
+                                    'relates to that concept '
+                                    ":'''{data.text.raw}'''. Your response:"},
+                {'id': 'Prompter Node',
+                 'model': id: "p3Warn_user_about_issues_found_in0"
+model_version {
+  id: "e2d31ba7c631496580960757dc6a0cff"
+}
+}]}
+{'DEBUG_NODE OUT': [0,
+                    id: "Prompter Node"
+model {
+  id: "p3Warn_user_about_issues_found_in0"
+  model_version {
+    id: "e2d31ba7c631496580960757dc6a0cff"
+  }
+}
+]}
+getlatest2
+DEBUG llama2_labelling_model_id
+DEBUG111 ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+DEBUG ('llama2-7b-chat', 'e52af5d6bc22445aa7a6761f327f7129')
+{'DEBUG_NODE': [1,
+                {'id': 'Labeller for Warn_user_about_issues_found_in0',
+                 'inputs': ['Prompter Node'],
+                 'model': {'id': 'llama2_labelling_model_id'}},
+                {'id': 'Labeller for Warn_user_about_issues_found_in0',
+                 'model': id: "llama2-7b-chat"
+model_version {
+  id: "e52af5d6bc22445aa7a6761f327f7129"
+}
+,
+                 'node_inputs': [node_id: "Prompter Node"
+]}]}
+{'DEBUG_NODE OUT': [1,
+                    id: "Labeller for Warn_user_about_issues_found_in0"
+model {
+  id: "llama2-7b-chat"
+  model_version {
+    id: "e52af5d6bc22445aa7a6761f327f7129"
+  }
+}
+node_inputs {
+  node_id: "Prompter Node"
+}
+]}
+REQ user_app_id {
+  user_id: "rxngfnlo5uhx"
+  app_id: "Introspector-LLama2-Hackathon-Demo1"
+}
+workflows {
+  id: "RakeItUpV3Warn_user_about_issues_found_in0"
+  nodes {
+    id: "Prompter Node"
+    model {
+      id: "p3Warn_user_about_issues_found_in0"
+      model_version {
+        id: "e2d31ba7c631496580960757dc6a0cff"
+      }
+    }
+  }
+  nodes {
+    id: "Labeller for Warn_user_about_issues_found_in0"
+    model {
+      id: "llama2-7b-chat"
+      model_version {
+        id: "e52af5d6bc22445aa7a6761f327f7129"
+      }
+    }
+    node_inputs {
+      node_id: "Prompter Node"
+    }
+  }
+}
+
+SER b'\n3\n\x0crxngfnlo5uhx\x12#Introspector-LLama2-Hackathon-Demo1\x12\xff\x01\n*RakeItUpV3Warn_user_about_issues_found_in0"Y\n\rPrompter Node\x12H\n"p3Warn_user_about_issues_found_in02"\n e2d31ba7c631496580960757dc6a0cff"v\n-Labeller for Warn_user_about_issues_found_in0\x124\n\x0ellama2-7b-chat2"\n e52af5d6bc22445aa7a6761f327f7129\x1a\x0f\n\rPrompter Node'
+even <grpc._cython.cygrpc.BatchOperationEvent object at 0x7f87ec3d09c0>
+state <grpc._channel._RPCState object at 0x7f87eec9a200>
+state.code StatusCode.OK
+state.code.value (0, 'ok')
+2023-09-12 15:59:42 INFO     INFO:clarifai.client.app:                                                          app.py:259
+                             Workflow created                                                                             
+                             code: SUCCESS                                                                                
+                             description: "Ok"                                                                            
+                             req_id: "3823b8f6425a224531ca2efeec66d5b1"                                                   
+                                                                                                                          
