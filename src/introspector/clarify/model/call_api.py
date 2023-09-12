@@ -22,6 +22,7 @@ APP_ID = simple.model.app_id
 ############################################################################
 
 def call_workflow(stub, metadata, userDataObject, workflow, data_url):
+    print(workflow, data_url)
     post_workflow_results_response = stub.PostWorkflowResults(
         service_pb2.PostWorkflowResultsRequest(
             user_app_id=userDataObject,
@@ -36,6 +37,7 @@ def call_workflow(stub, metadata, userDataObject, workflow, data_url):
     )
     if post_workflow_results_response.status.code != status_code_pb2.SUCCESS:
         print(post_workflow_results_response.status)
+        print(post_workflow_results_response)
         raise Exception(
             "Post workflow results failed, status: " + post_workflow_results_response.status.description
         )

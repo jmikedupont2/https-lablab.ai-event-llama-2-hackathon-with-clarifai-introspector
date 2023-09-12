@@ -181,18 +181,8 @@ for input_object in stream_inputs_response.inputs:
             #"RakeItUpV1pythonasts",
             #"RakeItUpV1pythonglobals",
     ]:
-        call_api.call_workflow(stub, metadata, userDataObject, workflow, data_url)
-#unclassified_inputs = app.inputs.get_all(unclassified=True)
-
-# Print the IDs of the unclassified inputs
-#for input_data in unclassified_inputs:
-#    print("Input ID:", input_data.id)
-
-
-
-#INPUT_ID = 'eec128fd81974543bafff48702edca4d'
-
-##########################################################################
-# YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
-##########################################################################
+        try:
+            call_api.call_workflow(stub, metadata, userDataObject, workflow, data_url)
+        except Exception as e:
+            print(e)
 
