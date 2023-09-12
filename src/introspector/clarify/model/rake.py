@@ -102,7 +102,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                         if model_id == "dynamic-prompter":
                             #prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates  :'''{{data.text.raw}}'''. Your response:"
                             prompt_template =  concept
-                            model_id = "p2"+ concept[:46]
+                            model_id = "p3"+ concept[:46]
                             if model_id in self.seen:
                                 continue
                                 
@@ -186,7 +186,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
             #)
             try:
                 created_workflow = self.app.create_workflow(
-                    workflow_id="RakeItUpV2" + concept, nodes=workflow_nodes
+                    workflow_id="RakeItUpV3" + concept, nodes=workflow_nodes
                 )
                 #return created_workflow
             except Exception as e:
