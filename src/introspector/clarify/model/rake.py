@@ -38,16 +38,29 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                 #print("DEBUG",c1, x1, x2)
 
                 if x1 not in concepts1:
+                    orig = x1
                     concepts1[x1] = 1
                     x1 = x1.strip()
                     x1 = x1.replace(" ","_")
                     x1 = x1.replace("__","_")
                     print("CONCEPT",x1)
-                    dataset_names[x1] = [
-                        f"The concept of {x1} and its relationship to the concepts contained in'''{{data.text.raw}}'''",
-                        f"The concept of {x1} in '''{{data.text.raw}}'''",
-                        f"Relate {x1} to'''{{data.text.raw}}'''",                        
-                    ]
+                    print("ORIG",orig)
+                    if len(orig)<3:
+                        raise Exception("nope")
+                    #
+                    for i,p in enumerate([
+                            f"The concept of {orig} and its relationship to the concepts contained in '''{{data.text.raw}}'''",
+                            f"The concept of {orig} in '''{{data.text.raw}}'''",
+                            f"The concept of {orig} in consideration of the special case of {x1} in '''{{data.text.raw}}'''",
+                            f"The concept of {orig} and {x1} in '''{{data.text.raw}}'''",
+                            f"Relate {orig} to '''{{data.text.raw}}'''",                        
+                    ]):
+                        print("DEBUG!ORIG", orig)
+                        print("DEBUG!",  x1)
+                        print("DEBUG!", str(i))
+                        print("DEBUG!P", str(p))
+                        
+                        dataset_names[x1 +str(i)] = p
                 
                 #dataset_names[x] = x
         return dataset_names
@@ -69,7 +82,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
         for concept in workflow_definitions:
             print("CONCEPT", concept)
             #text_versions = workflow_definitions[concept]
-            text_versions = all_concepts[concept] 
+            text_version = all_concepts[concept] 
             workflow_definition = workflow_definitions[concept]
             print("workflow_definition", workflow_definition)
             # Define your prompt template
@@ -89,7 +102,7 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                         if model_id == "dynamic-prompter":
                             #prompt_template = f"Hello, From the concept of {concept}, please evalute how the following statement relates  :'''{{data.text.raw}}'''. Your response:"
                             prompt_template =  concept
-                            model_id = "p"+ concept[:48]
+                            model_id = "p2"+ concept[:46]
                             if model_id in self.seen:
                                 continue
                                 
@@ -101,15 +114,18 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                                 print(e)
 
                             #now we create it
-                            for text in text_versions:
-                                latest_version = None
-                                prompt_template = text
-                                print("DEBUG TEXT 1",text)
-                                if aprompt_model is None:
-                                    auth = self.get_auth_helper()
-                                    model_api = Models(auth)
+                            #for text in text_versions:
+                            latest_version = None
+                            prompt_template = text_version
+                            text = text_version
+                            print("DEBUG TEXT 1",text)
+                            if len(text )<10 :
+                                raise Exception("too short", text)
+                            if aprompt_model is None:
+                                auth = self.get_auth_helper()
+                                model_api = Models(auth)
                                     
-                                    resp = model_api.create_prompt_model(
+                                resp = model_api.create_prompt_model(
                                         
                                         app_id=self.app_id,
                                         user_id=self.user_id,
@@ -117,13 +133,13 @@ class RakeItUpContext(SimpleContextClarifaiModel):
                                         prompt=prompt_template,
                                         position="TEMPLATE",
                                     )
+                                latest_version = [resp.id, resp.model_version.id]
+                                pprint.pprint(resp)
+                            else:
+                                latest_versions = aprompt_model.list_versions()
+                                if latest_versions:
+                                    resp = list(latest_versions)[0]
                                     latest_version = [resp.id, resp.model_version.id]
-                                    pprint.pprint(resp)
-                                else:
-                                    latest_versions = aprompt_model.list_versions()
-                                    if latest_versions:
-                                        resp = list(latest_versions)[0]
-                                        latest_version = [resp.id, resp.model_version.id]
                                     
                         else:
                             print("getlatest2")
