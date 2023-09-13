@@ -27,6 +27,44 @@ jobs:
           
       - name: Run tests
         run: docker-compose up --abort-on-container-exit
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+    # runs-on: ${{ matrix.os }}
+    # timeout-minutes: 20
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     os: [ubuntu-latest, macos-latest]
+    #     python-version: [3.8, 3.9]
+    #     exclude:
+    #       - os: macos-latest
+    #         python-version: 3.9
+    #     include:
+    #       - os: windows-latest
+    #         python-version: 3.8.10
+    # steps:
+    # - uses: actions/checkout@v2
+    # - name: Set up Python ${{ matrix.python-version }}
+    #   uses: actions/setup-python@v1
+    #   with:
+    #     python-version: ${{ matrix.python-version }}
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     pip install -r requirements.txt
+    #     pip install -r tests/requirements.txt
+    # - name: Run static analysis lint
+    #   uses: pre-commit/action@v3.0.0
+    # - name: set the command
+    #   env:
+    #     CLARIFAI_USER_ID: ${{ secrets.CLARIFAI_USER_ID }}
+    #     CLARIFAI_PAT: ${{ secrets.CLARIFAI_PAT }}
+
+    #   shell: bash
+    #   run: |
+    #     export PYTHONPATH=.
+    #     pytest tests/
     
 # To use the `docker/setup-buildx-action` with GitHub Actions to build and test your Dockerized application, follow these steps:
 
