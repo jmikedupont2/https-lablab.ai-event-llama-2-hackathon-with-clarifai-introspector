@@ -10,11 +10,85 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-     # -
+        # -
         # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
-     #   name: Set up QEMU
-     #   uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+        #   name: Set up QEMU
+        #   uses: docker/setup-qemu-action@v3
+     
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker buildx create --use
+          docker buildx inspect default --bootstrap
+          docker buildx build --tag myapp:latest .
+          
+      - name: Run tests
+        run: docker-compose up --abort-on-container-exit
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+    # runs-on: ${{ matrix.os }}
+    # timeout-minutes: 20
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     os: [ubuntu-latest, macos-latest]
+    #     python-version: [3.8, 3.9]
+    #     exclude:
+    #       - os: macos-latest
+    #         python-version: 3.9
+    #     include:
+    #       - os: windows-latest
+    #         python-version: 3.8.10
+    # steps:
+    # - uses: actions/checkout@v2
+    # - name: Set up Python ${{ matrix.python-version }}
+    #   uses: actions/setup-python@v1
+    #   with:
+    #     python-version: ${{ matrix.python-version }}
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     pip install -r requirements.txt
+    #     pip install -r tests/requirements.txt
+    # - name: Run static analysis lint
+    #   uses: pre-commit/action@v3.0.0
+    # - name: set the command
+    #   env:
+    #     CLARIFAI_USER_ID: ${{ secrets.CLARIFAI_USER_ID }}
+    #     CLARIFAI_PAT: ${{ secrets.CLARIFAI_PAT }}
+
+    #   shell: bash
+    #   run: |
+    #     export PYTHONPATH=.
+    #     pytest tests/
+    
+# To use the `docker/setup-buildx-action` with GitHub Actions to build and test your Dockerized application, follow these steps:
+
+# 1. **Set Up Your Dockerized Application:**
+#    Ensure your application is Dockerized and includes a Dockerfile.
+
+# 2. **Create a Docker Compose File (Optional):**
+#    If needed, create a `docker-compose.yml` file to define your application's services and dependencies.
+
+# 3. **Configure GitHub Repository:**
+#    Create a GitHub repository for your project if you haven't already. Push your Dockerized application code, including the Dockerfile and docker-compose file (if used), into this repository.
+
+# 4. **Create a GitHub Actions Workflow:**
+#    Create a `.github/workflows/docker.yml` file for your GitHub Actions workflow. This workflow will utilize `docker/setup-buildx-action` to build and test your Dockerized application.
+
+# 5. **Testing Locally:**
+#    To test your Dockerized application locally:
+
+#    - Install Docker on your local machine.
+#    - Clone your GitHub repository.
+#    - Navigate to the project directory and run `docker-compose up` to start your application's containers.
+#    - Access your application at `http://localhost` (or the appropriate URL) in your web browser.
+
+# 6. **Customize as Needed:**
+#    Customize the workflow, Dockerfile, and docker-compose file according to your specific project requirements.
+
+# Make sure to replace `<base_image>` with the actual base image you want to use in your Dockerfile. This example incorporates the `docker/setup-buildx-action` for improved Docker building capabilities within GitHub Actions.b
