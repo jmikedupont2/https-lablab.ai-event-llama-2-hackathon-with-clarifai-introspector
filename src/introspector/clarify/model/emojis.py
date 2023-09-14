@@ -1,7 +1,6 @@
 # emojis
-class Common:
-    pass
-
+from common import Common
+from clarifai_grpc.grpc.api import resources_pb2
 class Emojis(Common):
     def __init__(self):
         pass
@@ -22,19 +21,46 @@ class Emojis(Common):
     # emit new source code with new constants
     # save in session save buffer
     def prompt_model(self, text):
-        for x in ["Create prompt model that will ",
-                  "Construct a prompt that will have the effect of ",
-                  "Imagine instructions will have the effect of ",
-                  "Instructions for",
-                  "Instructions about",
-                  "Structure of",
-                  "Math behind",
-                  "Symbols behind",
-                  "Terms behind",
-                  "Key Terms behind",
-                  "Find Key Concepts behind",
-                  "Find Bugs contained",
-                  "Find Syntax contained",
+
+        tech = ["Streamlit","Gradio","langchain","clarifai"
+                "python","nodejs","haskell","java",
+                "rdf","xml","yaml","json","rest",
+                ]
+        for name in tech :
+            for atype in [
+                    "App","microservice",
+                    "function","class","snippet","snark",
+                    "oneliner",
+                    "url schema"
+                          ]:
+                for method in ["create","debug","fix",
+                               "deploy",
+                               "automate",
+                               "document",
+                               "triage",
+                               "support",
+                               "backup",
+                               "audit",
+                               "restore",
+                               "review",
+                               "rebuild"]:
+                    x = f"{method} a {name} {atype} that will "
+                    yield { "combine" : [ x,text] }
+            
+        for x in [
+                "Create prompt model that will ",
+                "Construct a prompt that will have the effect of ",
+                "Imagine instructions will have the effect of ",
+                "Instructions for",
+                "Instructions about",
+                "Structure of",
+                "Math behind",
+                "Symbols behind",
+                "Terms behind",
+                "Key Terms behind",
+                "Find Key Concepts behind",
+                "Find Bugs contained",
+                "Find Syntax contained",
                   "Find Tokens contained",
                   "Write missing documentation",
                   "Write missing todos",
@@ -167,14 +193,18 @@ class Emojis(Common):
         self.toprompt("translate this into a structured emoji representation?",data)
 
     def load_data(self):
-        dataset = []
-        text_data = resources_pb2.Text(raw=fstr)
-        data = resources_pb2.Data(text=text_data)
-        input_proto = resources_pb2.Input(
-            data=data,
-        )
-        dataset.append(input_proto)
-        return dataset
+        #for x in m.process():
+        #    print(x)
+
+        # dataset = []
+        # text_data = resources_pb2.Text(raw=fstr)
+        # data = resources_pb2.Data(text=text_data)
+        # input_proto = resources_pb2.Input(
+        #     data=data,
+        # )
+        # dataset.append(input_proto)
+        #return dataset
+        pass
     
 def main():
     m  = Emojis()

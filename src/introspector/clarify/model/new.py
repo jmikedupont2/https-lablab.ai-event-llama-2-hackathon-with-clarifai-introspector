@@ -37,24 +37,7 @@ CREATE_WORKFLOW_ID = "ci_test_workflow"
 CREATE_DATASET_ID = "ci_test_dataset"
 CREATE_MODULE_ID = "ci_test_module"
 
-
-class Common:
-    def load_data(self):
-        return []
-
-    def __init__(self):
-        self.dataset = None
-
-    def set_dataset(self, dataset):
-        self.dataset = dataset
-
-    def sync(self):
-        inputs = self.load_data()
-        if inputs:
-            print(len(inputs))
-
-            self.dataset.input_object._bulk_upload(inputs=inputs, chunk_size=chunk_size)
-
+from common import Common
 
 class Types(Common):
     pass
@@ -138,103 +121,7 @@ class Globals(Common):
             dataset.append(input_proto)
         return dataset
 
-class Emojis(Common):
-    def __init__(self):
-        pass
-
-    ideas = {
-        "📥🔗📜" : "A new way to express The input that you process With emojis that impress And convey more with less",
-        "🖼️📷" : "A challenge to achieve The image that you perceive With cameras that retrieve And frames that interweave",
-        "👏👏👏"  : "A praise for your creation The emoji translation With innovation and imagination And a poetic celebration" ,
-        "📥" :{ "type": "input"},
-        
-        "🔗" : { "url": "<URL>" },
-        "📜" : { "value" : "<VALUE>" }
-
-    }
-    
-    reversed = {
-        "A": "🅰️",
-        "new": "🆕"
-    }
-# emit new source code with new constants
-# save in session save buffer
-def lookup_ai(term):
-    prompt(f"lookup ai {term}")
-    
-def lookup_emoji(x):
-    if not isinstance(x,str):
-        return
-    if x in ideas:
-        return #have it 
-    if x not in reversed:
-        lookup_ai("We need an Emoji")
-        lookup_ai(f"Consider the meaning of the term '{x}'")        
-        lookup_ai("Generate a Prompt to help find out the answer to the question of what are some possible new Emojis for {x}?")
-        lookup_ai("help find out the answer to the question of what are some possible new Emojis for {x}?")
-        lookup_ai("what are some possible new Emojis for {x}?")
-        lookup_ai("What are some Emojis for {x}?")        
-        reversed = "TODO"
-
-for e in ideas:
-    st.write(e)
-    prompt_model("What is the meaning of following Emoji")
-    lookup_ai("What is the meaning of the Emojis {x}?")        
-    v = ideas[e]
-    if isinstance(v,str):
-        for x in v.split():
-            st.write(e, x)
-            lookup_emoji(e)
-            lookup_emoji(x)
-    elif isinstance(v,dict): #could be a word
-        for k in v: #key name
-            v2 = v[k] #can be dic
-            if isinstance(v2, dict):
-                for k2 in v2:
-                    v3 = v2[k2] # thied level
-                    
-                    for a in [e, v, k, v2, k2, v3]:
-                        lookup_emoji(a)
-
-                    st.write(e, v, k, v2, k2, v3)
-            else:
-                st.write(e, v, k, v2)
-                for a in [e, v, k, v2]:
-                    lookup_emoji(a)
-    else:
-        
-        for x in ideas[e]:
-            st.write(e, x)
-            for a in [e, x]:
-                lookup_emoji(a)
-
-
-def toemoji(data):
-    toprompt("translate this into a structured emoji representation?",data)
-
-
-    def load_data(self):
-        dataset = []
-        for objectn in globals():
-            value = globals()[objectn]
-            fstr = redact(str(value))
-
-            object_id = lookup_id(fstr)
-                            
-            labels = [objectn, str(type(value))]
-            labels.extend(dir(value))
-            labels.extend(dir(type(value)))
-            text_data = resources_pb2.Text(raw=fstr)
-            data = resources_pb2.Data(text=text_data)
-            input_proto = resources_pb2.Input(
-                data=data,
-                # labels=labels,
-                # id=str(id(value))
-                #lookup_id(fstr)
-            )
-            dataset.append(input_proto)
-        return dataset
-
+from emojis import Emojis
 
 models = {
     "Emojis": Emojis(),

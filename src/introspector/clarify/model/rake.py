@@ -39,7 +39,9 @@ class RakeItUpContext(SimpleContextClarifaiModel):
 
                 if x1 not in concepts1:
                     orig = x1
+                    print("DEBUG",x1)
                     concepts1[x1] = 1
+
                     x1 = x1.strip()
                     x1 = x1.replace(" ","_")
                     x1 = x1.replace("__","_")
