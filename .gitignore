@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 *~
 *~
+*#
+/src/introspector/clarify/model/err.txt
